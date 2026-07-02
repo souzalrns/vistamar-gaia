@@ -11,21 +11,16 @@
 :root{--sand:#f0ebe3;--deep:#0d1b2a;--ocean:#1a4a6b;--ocean-light:#2a6fa8;--gold:#c9a84c;--gold-light:#e8c97a;--white:#fdfcfa;--muted:#7a8a9a;}
 *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
 body{font-family:'Jost',sans-serif;background:var(--white);color:var(--deep);overflow-x:hidden;}
-
-/* LANG BAR */
 .lang-bar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:0 40px;height:52px;background:rgba(13,27,42,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.25);}
 .lang-logo{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1rem;letter-spacing:0.3em;text-transform:uppercase;font-weight:300;}
 .lang-btns{display:flex;gap:6px;}
 .lang-btn{background:none;border:1px solid rgba(201,168,76,0.3);color:rgba(255,255,255,0.6);padding:4px 12px;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.15em;cursor:pointer;transition:all 0.3s;border-radius:2px;}
 .lang-btn:hover,.lang-btn.active{background:var(--gold);color:var(--deep);border-color:var(--gold);}
-
-/* HERO */
-.hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:flex-end;overflow:hidden;margin-top:52px;}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,27,42,0.2) 0%,rgba(13,27,42,0.78) 100%),linear-gradient(135deg,#1a4a6b 0%,#0d2d4a 40%,#0a1520 100%);}
-.hero-wave{position:absolute;inset:0;overflow:hidden;}
-.hero-wave::before{content:'';position:absolute;width:200%;height:200%;top:-80%;left:-50%;background:radial-gradient(ellipse at 60% 40%,rgba(42,111,168,0.35) 0%,transparent 60%),radial-gradient(ellipse at 30% 70%,rgba(201,168,76,0.12) 0%,transparent 50%);animation:waveFloat 12s ease-in-out infinite;}
-@keyframes waveFloat{0%,100%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(-3%,3%) rotate(2deg)}}
-.hero-content{position:relative;z-index:2;padding:0 60px 80px;max-width:900px;animation:heroIn 1.2s cubic-bezier(0.22,1,0.36,1) forwards;opacity:0;transform:translateY(30px);}
+.hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;overflow:hidden;margin-top:52px;}
+.hero-bg{position:absolute;inset:0;background:url('https://raw.githubusercontent.com/souzalrns/canidelo-vista-mar/main/hero.jpg') center center/cover no-repeat;}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,27,42,0.92) 0%,rgba(13,27,42,0.6) 50%,rgba(13,27,42,0.08) 100%);}
+.hero-wave{display:none;}
+.hero-content{position:relative;z-index:2;padding:120px 60px 200px;max-width:640px;display:flex;flex-direction:column;justify-content:flex-end;animation:heroIn 1.2s cubic-bezier(0.22,1,0.36,1) forwards;opacity:0;transform:translateY(30px);}
 @keyframes heroIn{to{opacity:1;transform:translateY(0)}}
 .hero-eyebrow{font-size:0.7rem;letter-spacing:0.35em;color:var(--gold);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:14px;}
 .hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--gold);}
@@ -38,16 +33,19 @@ body{font-family:'Jost',sans-serif;background:var(--white);color:var(--deep);ove
 .hero-price-badge{position:absolute;top:100px;right:60px;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.4);backdrop-filter:blur(20px);padding:28px 36px;text-align:center;animation:heroIn 1.4s 0.3s cubic-bezier(0.22,1,0.36,1) forwards;opacity:0;transform:translateY(30px);}
 .hero-price-val{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--gold-light);font-weight:300;display:block;}
 .hero-price-sub{font-size:0.6rem;letter-spacing:0.2em;color:rgba(255,255,255,0.5);text-transform:uppercase;margin-top:6px;}
-.hero-scroll{position:absolute;bottom:30px;right:60px;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,0.4);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;}
-.hero-scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollLine 2s ease-in-out infinite;}
+.hero-scroll{display:none;}
+.hero-scroll-line{display:none;}
 @keyframes scrollLine{0%,100%{opacity:0.5}50%{opacity:1}}
-
-/* SEA STRIPE */
+.hero-vt{position:absolute;bottom:40px;right:60px;z-index:3;display:flex;flex-direction:row;gap:12px;align-items:flex-end;}
+.hero-vt-btn{display:flex;align-items:center;gap:12px;background:rgba(13,27,42,0.5);border:1px solid rgba(201,168,76,0.5);backdrop-filter:blur(12px);padding:14px 22px;text-decoration:none;transition:all 0.3s;animation:heroIn 1.4s 0.4s cubic-bezier(0.22,1,0.36,1) forwards;opacity:0;transform:translateY(20px);}
+.hero-vt-btn:hover{background:rgba(201,168,76,0.15);border-color:var(--gold);}
+.hero-vt-icon{width:38px;height:38px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.hero-vt-play{width:0;height:0;border-style:solid;border-width:8px 0 8px 14px;border-color:transparent transparent transparent var(--deep);margin-left:3px;}
+.hero-vt-label{font-size:0.55rem;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:2px;}
+.hero-vt-title{font-size:0.8rem;color:white;font-weight:300;display:block;}
 .sea-stripe{background:var(--ocean);padding:16px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;overflow-x:auto;}
 .sea-tag{font-size:0.62rem;letter-spacing:0.2em;color:rgba(255,255,255,0.65);text-transform:uppercase;display:flex;align-items:center;gap:8px;white-space:nowrap;}
 .sea-tag::before{content:'◆';color:var(--gold);font-size:0.45rem;}
-
-/* SECTION */
 .section{padding:100px 60px;}
 .section-inner{max-width:1200px;margin:0 auto;}
 .section-label{font-size:0.65rem;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
@@ -55,21 +53,11 @@ body{font-family:'Jost',sans-serif;background:var(--white);color:var(--deep);ove
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;line-height:1.15;margin-bottom:24px;}
 .section-title em{font-style:italic;color:var(--ocean);}
 .section-text{font-size:0.95rem;line-height:1.9;color:#4a5a6a;max-width:680px;font-weight:300;}
-
-/* VIDEO */
 .gallery-section{background:#000;}
-.video-hero{position:relative;width:100%;height:520px;overflow:hidden;background:#0a1520;}
-.video-hero video{width:100%;height:100%;object-fit:cover;display:block;}
-.video-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(13,27,42,0.85) 100%);display:flex;align-items:flex-end;padding:40px 60px;pointer-events:none;}
-.video-label{font-family:'Cormorant Garamond',serif;font-size:2rem;color:white;font-weight:300;}
-.video-label span{color:var(--gold-light);font-style:italic;}
-
-/* PHOTO GRID */
 .photo-grid-wrap{padding:4px;background:#111;}
-.photo-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:260px 260px 260px;gap:4px;}
-.photo-cell{position:relative;overflow:hidden;cursor:pointer;background:#1a2a3a;}
-.photo-cell:nth-child(1){grid-column:1/3;grid-row:1/3;}
-.photo-cell:nth-child(6){grid-column:3/5;}
+.photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;}
+.photo-cell{position:relative;overflow:hidden;cursor:pointer;background:#1a2a3a;height:220px;}
+.photo-cell:first-child{grid-column:1/3;grid-row:1/3;height:444px;}
 .photo-cell img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s cubic-bezier(0.22,1,0.36,1);}
 .photo-cell:hover img{transform:scale(1.06);}
 .photo-cell::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(13,27,42,0.4) 100%);opacity:0;transition:opacity 0.3s;}
@@ -80,8 +68,6 @@ body{font-family:'Jost',sans-serif;background:var(--white);color:var(--deep);ove
 .view-all-cell:hover{background:var(--ocean);}
 .view-all-icon{font-size:2.5rem;}
 .view-all-text{font-size:0.65rem;letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;font-family:'Jost',sans-serif;text-align:center;padding:0 10px;}
-
-/* LIGHTBOX */
 .lightbox{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.97);align-items:center;justify-content:center;}
 .lightbox.open{display:flex;}
 .lb-img{max-width:90vw;max-height:88vh;object-fit:contain;display:block;}
@@ -91,8 +77,6 @@ body{font-family:'Jost',sans-serif;background:var(--white);color:var(--deep);ove
 .lb-prev{left:10px;}.lb-next{right:10px;}
 .lb-prev:hover,.lb-next:hover{color:var(--gold-light);}
 .lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.4);font-size:0.75rem;letter-spacing:0.2em;}
-
-/* MATTERPORT */
 .matterport-section{background:var(--deep);padding:0;}
 .matterport-header{padding:70px 60px 0;}
 .matterport-header .section-label{color:var(--gold);}
@@ -102,8 +86,6 @@ body{font-family:'Jost',sans-serif;background:var(--white);color:var(--deep);ove
 .matterport-header .section-text{color:rgba(255,255,255,0.6);margin-bottom:44px;}
 .matterport-embed{position:relative;width:100%;padding-bottom:52%;background:#000;}
 .matterport-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
-
-/* FEATURES */
 .features-section{background:var(--sand);}
 .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;margin-top:60px;}
 .feature-card{background:var(--white);padding:40px 36px;position:relative;overflow:hidden;transition:all 0.4s cubic-bezier(0.22,1,0.36,1);}
@@ -113,8 +95,6 @@ body{font-family:'Jost',sans-serif;background:var(--white);color:var(--deep);ove
 .feature-icon{font-size:2rem;margin-bottom:20px;display:block;}
 .feature-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;margin-bottom:10px;}
 .feature-desc{font-size:0.85rem;color:#6a7a8a;line-height:1.7;font-weight:300;}
-
-/* BRANDS STRIP */
 .brands-strip{background:var(--white);padding:48px 60px;border-top:1px solid rgba(13,27,42,0.06);}
 .brands-inner{max-width:1200px;margin:0 auto;}
 .brands-label{font-size:0.6rem;letter-spacing:0.3em;color:var(--muted);text-transform:uppercase;text-align:center;margin-bottom:32px;}
@@ -123,8 +103,6 @@ body{font-family:'Jost',sans-serif;background:var(--white);color:var(--deep);ove
 .brand-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--deep);letter-spacing:0.12em;font-weight:400;}
 .brand-cat{font-size:0.58rem;letter-spacing:0.22em;color:var(--muted);text-transform:uppercase;}
 .brand-divider{width:1px;height:40px;background:rgba(13,27,42,0.1);}
-
-/* EQUIPAMENTOS GRID */
 .equip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px;}
 .equip-card{padding:28px 30px;border:1px solid rgba(13,27,42,0.08);transition:all 0.3s;}
 .equip-card:hover{border-color:rgba(201,168,76,0.4);background:rgba(201,168,76,0.03);}
@@ -133,16 +111,12 @@ body{font-family:'Jost',sans-serif;background:var(--white);color:var(--deep);ove
 .equip-card-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;}
 .equip-card-brand{display:inline-block;font-size:0.58rem;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;background:rgba(201,168,76,0.1);padding:3px 8px;border-radius:1px;margin-top:4px;}
 .equip-card-desc{font-size:0.82rem;color:#6a7a8a;line-height:1.7;font-weight:300;}
-
-/* SPLIT LOCATION */
 .split-section{display:grid;grid-template-columns:1fr 1fr;min-height:580px;}
 .split-visual{background:linear-gradient(135deg,var(--ocean) 0%,var(--deep) 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
 .split-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(201,168,76,0.15),transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(42,111,168,0.3),transparent 50%);}
 .split-visual-content{text-align:center;color:white;padding:60px;position:relative;z-index:2;}
 .big-number{font-family:'Cormorant Garamond',serif;font-size:7rem;font-weight:300;color:rgba(255,255,255,0.06);line-height:1;position:absolute;bottom:30px;right:40px;}
 .split-text{padding:80px 70px;display:flex;flex-direction:column;justify-content:center;}
-
-/* AREA */
 .area-section{background:var(--sand);}
 .area-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:80px;margin-top:60px;align-items:start;}
 .area-points{display:flex;flex-direction:column;gap:20px;}
@@ -159,8 +133,6 @@ body{font-family:'Jost',sans-serif;background:var(--white);color:var(--deep);ove
 .area-stat-card:nth-child(4){background:rgba(13,27,42,0.88);}
 .area-stat-val{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--gold-light);line-height:1;margin-bottom:6px;}
 .area-stat-label{font-size:0.62rem;letter-spacing:0.18em;color:rgba(255,255,255,0.6);text-transform:uppercase;}
-
-/* INVESTMENT / GAIA HUB */
 .invest-section{background:var(--deep);color:white;}
 .invest-section .section-label{color:var(--gold);}
 .invest-section .section-label::before{background:var(--gold);}
@@ -177,8 +149,6 @@ body{font-family:'Jost',sans-serif;background:var(--white);color:var(--deep);ove
 .hub-alert-icon{font-size:1.8rem;flex-shrink:0;margin-top:2px;}
 .hub-alert-text{font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.8;font-weight:300;}
 .hub-alert-text strong{color:var(--gold-light);}
-
-/* YOUTUBE GRID */
 .yt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;}
 .yt-card{display:block;text-decoration:none;position:relative;background:#000;overflow:hidden;border:1px solid rgba(201,168,76,0.15);transition:border-color 0.3s;}
 .yt-card:hover{border-color:rgba(201,168,76,0.5);}
@@ -193,9 +163,6 @@ body{font-family:'Jost',sans-serif;background:var(--white);color:var(--deep);ove
 .yt-info-label{font-size:0.58rem;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;margin-bottom:4px;}
 .yt-info-title{font-family:'Cormorant Garamond',serif;font-size:1rem;color:white;font-weight:300;line-height:1.3;}
 .yt-open-tag{font-size:0.55rem;letter-spacing:0.15em;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-top:6px;display:block;}
-@media(max-width:900px){.yt-grid{grid-template-columns:1fr;}}
-
-/* IMI */
 .imi-section{background:var(--white);}
 .imi-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:60px;}
 .imi-card{border:1px solid rgba(13,27,42,0.08);padding:40px 30px;transition:all 0.3s;}
@@ -206,15 +173,11 @@ body{font-family:'Jost',sans-serif;background:var(--white);color:var(--deep);ove
 .imi-highlight{margin-top:60px;padding:44px 52px;background:var(--sand);border-left:3px solid var(--gold);display:flex;align-items:flex-start;gap:24px;}
 .imi-highlight-icon{font-size:2rem;flex-shrink:0;}
 .imi-highlight-text{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--deep);font-weight:300;line-height:1.55;font-style:italic;}
-
-/* SPECS */
 .specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:60px;}
 .spec-row{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:var(--sand);border-left:2px solid transparent;transition:all 0.3s;}
 .spec-row:hover{border-left-color:var(--gold);background:rgba(201,168,76,0.06);}
 .spec-key{font-size:0.7rem;letter-spacing:0.15em;color:var(--muted);text-transform:uppercase;}
 .spec-val{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--deep);text-align:right;}
-
-/* CTA */
 .cta-section{background:linear-gradient(135deg,var(--deep) 0%,var(--ocean) 100%);padding:120px 60px;text-align:center;position:relative;overflow:hidden;}
 .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(201,168,76,0.15),transparent 50%),radial-gradient(ellipse at 80% 50%,rgba(42,111,168,0.2),transparent 50%);}
 .cta-section .section-title{color:white;}
@@ -229,111 +192,95 @@ body{font-family:'Jost',sans-serif;background:var(--white);color:var(--deep);ove
 footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border-top:1px solid rgba(201,168,76,0.15);}
 .footer-brand{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1.2rem;letter-spacing:0.3em;text-transform:uppercase;}
 .footer-note{font-size:0.7rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;}
-
-/* REVEAL */
+.whatsapp-float{position:fixed;bottom:32px;right:32px;z-index:9000;display:flex;align-items:center;gap:12px;background:#25D366;border-radius:50px;padding:14px 22px 14px 16px;box-shadow:0 4px 24px rgba(37,211,102,0.4);text-decoration:none;transition:all 0.3s;animation:heroIn 1.5s 0.5s cubic-bezier(0.22,1,0.36,1) forwards;opacity:0;}
+.whatsapp-float:hover{background:#20bc5a;transform:translateY(-3px);box-shadow:0 8px 32px rgba(37,211,102,0.5);}
+.whatsapp-icon{width:28px;height:28px;flex-shrink:0;}
+.whatsapp-text{display:flex;flex-direction:column;}
+.whatsapp-label{font-size:0.55rem;letter-spacing:0.15em;color:rgba(255,255,255,0.8);text-transform:uppercase;line-height:1;}
+.whatsapp-title{font-size:0.82rem;color:white;font-weight:500;line-height:1.3;}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.22,1,0.36,1),transform 0.8s cubic-bezier(0.22,1,0.36,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
 .reveal-delay-1{transition-delay:0.1s;}.reveal-delay-2{transition-delay:0.2s;}
 .reveal-delay-3{transition-delay:0.3s;}.reveal-delay-4{transition-delay:0.4s;}
-
 @media(max-width:900px){
-  .section{padding:70px 30px;}.hero-content{padding:0 30px 60px;}.hero-price-badge{display:none;}
+  .section{padding:70px 30px;}.hero-content{padding:60px 24px 180px;}.hero-price-badge{display:none;}
   .split-section{grid-template-columns:1fr;}.split-visual{min-height:300px;}.split-text{padding:50px 30px;}
   .area-grid{grid-template-columns:1fr;}.specs-grid{grid-template-columns:1fr;}
   .invest-grid{grid-template-columns:1fr;}.yt-grid{grid-template-columns:1fr;}
   .photo-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto;}
-  .photo-cell:nth-child(1){grid-column:1/3;grid-row:auto;height:240px;}
-  .photo-cell:nth-child(6){grid-column:auto;}
+  .photo-cell:first-child{grid-column:1/3;grid-row:auto;height:240px;}
   .photo-cell{height:180px;}
   .sea-stripe{padding:14px 20px;}.lang-bar{padding:0 16px;}.cta-section{padding:80px 30px;}
   footer{padding:30px;flex-direction:column;text-align:center;}
   .matterport-header{padding:50px 30px 0;}
-  .video-hero{height:280px;}.video-overlay{padding:20px 30px;}
   .brands-row{gap:24px;}.brand-divider{display:none;}
   .hub-alert{padding:24px 28px;}
+  .hero-vt{bottom:24px;right:16px;left:16px;flex-direction:column;gap:10px;align-items:stretch;}
+  .hero-vt-btn{padding:12px 16px;margin-top:0!important;justify-content:flex-start;}
+  .hero-vt-icon{width:32px;height:32px;flex-shrink:0;}
+  .hero-stats{gap:24px;}
+  .whatsapp-float{bottom:16px;right:16px;padding:10px 16px 10px 12px;}
+  .whatsapp-title{font-size:0.75rem;}
 }
 </style>
 </head>
 <body>
 
-<!-- LANG BAR -->
 <header class="lang-bar">
   <div class="lang-logo">Canidelo <span style="color:rgba(255,255,255,0.2)">·</span> Vista Mar</div>
   <div class="lang-btns">
     <button class="lang-btn active" onclick="setLang('pt')">PT</button>
     <button class="lang-btn" onclick="setLang('en')">EN</button>
     <button class="lang-btn" onclick="setLang('fr')">FR</button>
+    <button class="lang-btn" onclick="setLang('es')">ES</button>
     <button class="lang-btn" onclick="setLang('ru')">РУ</button>
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div><div class="hero-wave"></div>
-  <div class="hero-price-badge">
-    <span class="hero-price-val">599.000 €</span>
-    <p class="hero-price-sub" id="h-price-sub">Venda Direta · Sem Comissão %</p>
-  </div>
+  <div class="hero-bg"></div>
   <div class="hero-content">
     <div class="hero-eyebrow" id="h-eyebrow">Canidelo · Vila Nova de Gaia · 2ª Linha do Mar</div>
-    <h1 class="hero-title" id="h-title">Viver entre<br>o <em>Atlântico</em><br>e o Porto.</h1>
-    <p class="hero-subtitle" id="h-sub">T3+1 totalmente renovado com 155 m² úteis, vista mar, equipamentos premium e mobiliário incluído — na 2ª linha da Praia de Lavadores.</p>
+    <h1 class="hero-title" id="h-title">Viver entre<br>o <em>Atlântico</em><br>e o Douro.</h1>
+    <p class="hero-subtitle" id="h-sub">T3+1 totalmente remodelado com 155 m², vista mar, equipamentos premium — na 2ª linha da Praia de Lavadores.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><span class="hero-stat-val">155 m²</span><span class="hero-stat-label" id="hs-util">Área Útil</span></div>
+      <div class="hero-stat"><span class="hero-stat-val">155 m²</span><span class="hero-stat-label" id="hs-util">Área Total</span></div>
       <div class="hero-stat"><span class="hero-stat-val">T3+1</span><span class="hero-stat-label" id="hs-tipo">Tipologia</span></div>
       <div class="hero-stat"><span class="hero-stat-val">2 WC</span><span class="hero-stat-label" id="hs-wc">Casas de Banho</span></div>
-      <div class="hero-stat"><span class="hero-stat-val">Vista</span><span class="hero-stat-label" id="hs-view">Oceano Atlântico</span></div>
+      <div class="hero-stat"><span class="hero-stat-val">550.000 €</span><span class="hero-stat-label" id="hs-view">Venda Directa</span></div>
     </div>
   </div>
-  <div class="hero-scroll"><div class="hero-scroll-line"></div><span id="h-scroll">Descobrir</span></div>
+  <div class="hero-scroll"></div>
+  <div class="hero-vt">
+    <a href="https://my.matterport.com/show/?m=9LdBxgVygAe" target="_blank" rel="noopener" class="hero-vt-btn">
+      <div class="hero-vt-icon"><div class="hero-vt-play"></div></div>
+      <div><span class="hero-vt-label">Visita Virtual 3D</span><span class="hero-vt-title">Explorar o apartamento</span></div>
+    </a>
+    <a href="https://www.youtube.com/watch?v=MFECQq2OZmM" target="_blank" rel="noopener" class="hero-vt-btn" style="margin-top:10px;">
+      <div class="hero-vt-icon" style="background:rgba(255,255,255,0.2);"><div class="hero-vt-play" style="border-color:transparent transparent transparent white;"></div></div>
+      <div><span class="hero-vt-label">Vídeo</span><span class="hero-vt-title">Ver o apartamento</span></div>
+    </a>
+  </div>
 </section>
 
-<!-- TAGS -->
 <div class="sea-stripe">
-  <span class="sea-tag" id="tag1">Renovação Total</span>
+  <span class="sea-tag" id="tag1">Remodelação Integral</span>
   <span class="sea-tag" id="tag2">Daikin A+++ Wi-Fi</span>
   <span class="sea-tag" id="tag3">Vidros Triplos</span>
   <span class="sea-tag" id="tag4">Siemens + Samsung</span>
   <span class="sea-tag" id="tag5">Varanda Vista Mar</span>
-  <span class="sea-tag" id="tag6">Chuveiro Duplo + Banheira</span>
-  <span class="sea-tag" id="tag7">Mobiliário Incluído</span>
+  <span class="sea-tag" id="tag6">Suite com Banheira</span>
+  <span class="sea-tag" id="tag7">Recuperador a Pellets</span>
   <span class="sea-tag" id="tag8">Churrasqueira Weber</span>
   <span class="sea-tag" id="tag9">Garagem + Arrecadação</span>
 </div>
 
-<!-- VIDEO -->
 <section class="gallery-section">
-  <div class="video-hero" style="height:auto;background:#000;">
-    <div style="position:relative;width:100%;padding-bottom:52%;background:#0a1520;">
-      <iframe
-        src="https://drive.google.com/file/d/1-4n6juh7e__QnOgyhTZfsAaBf1WuqqfY/preview"
-        style="position:absolute;inset:0;width:100%;height:100%;border:none;"
-        allow="autoplay"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <div style="background:rgba(13,27,42,0.95);padding:16px 60px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
-      <span style="font-size:0.6rem;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;">Vídeos do Apartamento</span>
-      <a href="https://drive.google.com/file/d/1-4n6juh7e__QnOgyhTZfsAaBf1WuqqfY/preview" 
-         onclick="switchVideo(this,'1-4n6juh7e__QnOgyhTZfsAaBf1WuqqfY');return false;"
-         style="font-size:0.7rem;color:white;text-decoration:none;padding:6px 16px;border:1px solid rgba(201,168,76,0.4);cursor:pointer" id="vbtn1">▶ Vídeo 1</a>
-      <a href="https://drive.google.com/file/d/1HDKwmzy7dUCYOglmSP5RkYZeibq9w_cf/preview"
-         onclick="switchVideo(this,'1HDKwmzy7dUCYOglmSP5RkYZeibq9w_cf');return false;"
-         style="font-size:0.7rem;color:rgba(255,255,255,0.5);text-decoration:none;padding:6px 16px;border:1px solid rgba(255,255,255,0.15);cursor:pointer" id="vbtn2">▶ Vídeo 2</a>
-      <a href="https://drive.google.com/file/d/17RTdsyM5SjaN5OzT7JJFrqQT4hQdczOu/preview"
-         onclick="switchVideo(this,'17RTdsyM5SjaN5OzT7JJFrqQT4hQdczOu');return false;"
-         style="font-size:0.7rem;color:rgba(255,255,255,0.5);text-decoration:none;padding:6px 16px;border:1px solid rgba(255,255,255,0.15);cursor:pointer" id="vbtn3">▶ Vídeo 3</a>
-      <a href="https://drive.google.com/file/d/1NHo5cpklEhlJy6RtvTUrNUxjX1KBMzRH/preview"
-         onclick="switchVideo(this,'1NHo5cpklEhlJy6RtvTUrNUxjX1KBMzRH');return false;"
-         style="font-size:0.7rem;color:rgba(255,255,255,0.5);text-decoration:none;padding:6px 16px;border:1px solid rgba(255,255,255,0.15);cursor:pointer" id="vbtn4">▶ Vídeo 4</a>
-    </div>
-  </div>
   <div class="photo-grid-wrap">
     <div class="photo-grid" id="photoGrid"></div>
   </div>
 </section>
 
-<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <button class="lb-close" onclick="closeLightbox()">×</button>
   <button class="lb-prev" onclick="lbNav(-1)">‹</button>
@@ -342,41 +289,71 @@ footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:spa
   <div class="lb-counter" id="lbCounter"></div>
 </div>
 
-<!-- MATTERPORT 3D -->
-<section class="matterport-section">
-  <div class="matterport-header reveal">
-    <div class="section-label" id="m3d-label">Visita Virtual 3D</div>
-    <h2 class="section-title" id="m3d-title">Explore cada divisão<br>sem sair de <em>casa.</em></h2>
-    <p class="section-text" id="m3d-text">Navegue por todos os espaços em 360° com tecnologia Matterport — veja cada divisão, meça distâncias e sinta a real amplitude do imóvel antes de agendar visita presencial.</p>
+<section class="section" style="background:var(--sand)">
+  <div class="section-inner">
+    <div class="reveal"><div class="section-label" id="spec-label">Ficha Técnica</div><h2 class="section-title" id="spec-title">Todos os <em>detalhes</em><br>do imóvel.</h2></div>
+    <div class="specs-grid reveal">
+      <div class="spec-row"><span class="spec-key" id="sk1">Tipologia</span><span class="spec-val">T3 + 1 Divisão</span></div>
+      <div class="spec-row"><span class="spec-key" id="sk2">Área Total</span><span class="spec-val">155 m²</span></div>
+      <div class="spec-row"><span class="spec-key" id="sk3">Casas de Banho</span><span class="spec-val">2 WC (1 Suite)</span></div>
+      <div class="spec-row"><span class="spec-key" id="sk4">Andar</span><span class="spec-val">1º com Elevador</span></div>
+      <div class="spec-row"><span class="spec-key" id="sk5">Estacionamento</span><span class="spec-val">Garagem + Portão Eléctrico</span></div>
+      <div class="spec-row"><span class="spec-key" id="sk6">Arrecadação</span><span class="spec-val">Individual</span></div>
+      <div class="spec-row"><span class="spec-key" id="sk7">Ano de Construção</span><span class="spec-val">1988</span></div>
+      <div class="spec-row"><span class="spec-key" id="sk8">Estado</span><span class="spec-val">Totalmente Remodelado</span></div>
+      <div class="spec-row"><span class="spec-key" id="sk9">Vista</span><span class="spec-val">Oceano Atlântico</span></div>
+      <div class="spec-row"><span class="spec-key" id="sk10">Climatização Quartos</span><span class="spec-val">Daikin A+++ Wi-Fi</span></div>
+      <div class="spec-row"><span class="spec-key" id="sk11">Aquecimento Sala</span><span class="spec-val">Recuperador a Pellets</span></div>
+      <div class="spec-row"><span class="spec-key" id="sk12">Caixilharia</span><span class="spec-val">Vidros Triplos</span></div>
+      <div class="spec-row"><span class="spec-key" id="sk13">Pavimento</span><span class="spec-val">Porcelanato Revigres</span></div>
+      <div class="spec-row"><span class="spec-key" id="sk14">Condomínio</span><span class="spec-val">61 €/mês</span></div>
+      <div class="spec-row"><span class="spec-key" id="sk15">Mobiliário</span><span class="spec-val">Disponível mediante acordo</span></div>
+      <div class="spec-row"><span class="spec-key" id="sk16">Preço</span><span class="spec-val" style="color:var(--ocean);font-size:1.2rem">550.000 €</span></div>
+    </div>
   </div>
-  <div class="matterport-embed">
-    <iframe src="https://my.matterport.com/show/?m=dq2w5rSXTjR&lang=pt&play=1&qs=1&gt=1&hr=1"
+</section>
+
+<section style="background:var(--deep);padding:0;">
+  <div style="padding:70px 60px 0;" class="reveal">
+    <div class="section-label" style="color:var(--gold);">Visita Virtual 3D</div>
+    <h2 class="section-title" style="color:white;">Percorra cada divisão<br>antes de <em style="color:var(--gold-light);">visitar.</em></h2>
+    <p class="section-text" style="color:rgba(255,255,255,0.6);margin-bottom:44px;">Visita virtual completa em tecnologia Matterport — navegue por todos os espaços, meça distâncias e sinta a amplitude real do apartamento antes de agendar visita presencial.</p>
+  </div>
+  <div style="position:relative;width:100%;padding-bottom:52%;background:#000;" id="matterport-wrap">
+    <div id="matterport-overlay" style="position:absolute;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;cursor:pointer;background:rgba(13,27,42,0.5);" onclick="activateMatterport()">
+      <div style="text-align:center;">
+        <div style="width:80px;height:80px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+          <div style="width:0;height:0;border-style:solid;border-width:14px 0 14px 24px;border-color:transparent transparent transparent var(--deep);margin-left:6px;"></div>
+        </div>
+        <p style="color:white;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;">Clique para explorar</p>
+      </div>
+    </div>
+    <iframe id="matterport-iframe" src="about:blank" data-src="https://my.matterport.com/show/?m=9LdBxgVygAe&play=1&qs=1&lang=pt"
+      style="position:absolute;inset:0;width:100%;height:100%;border:none;"
       allow="fullscreen; xr-spatial-tracking" allowfullscreen title="Visita Virtual 3D"></iframe>
   </div>
 </section>
 
-<!-- FEATURES -->
 <section class="section features-section">
   <div class="section-inner">
     <div class="reveal">
       <div class="section-label" id="feat-label">O Apartamento</div>
-      <h2 class="section-title" id="feat-title">Renovação total.<br>Zero concessões na <em>qualidade.</em></h2>
-      <p class="section-text" id="feat-desc">Intervenção profunda em toda a estrutura: substituição de canalizações, quadro elétrico novo, teto rebaixado em gesso, revestimentos Revigres e caixilharia com vidros triplos. Um imóvel com a robustez de 1988 e o conforto de hoje.</p>
+      <h2 class="section-title" id="feat-title">Remodelação integral.<br>Zero concessões na <em>qualidade.</em></h2>
+      <p class="section-text" id="feat-desc">Intervenção profunda em toda a estrutura: substituição de canalizações, quadro eléctrico novo, tecto rebaixado em gesso, revestimentos Revigres e caixilharia com vidros triplos em todas as janelas.</p>
     </div>
     <div class="features-grid">
       <div class="feature-card reveal reveal-delay-1"><span class="feature-icon">🌡️</span><div class="feature-title" id="f1t">Vidros Triplos</div><p class="feature-desc" id="f1d">Caixilharia de alta eficiência com vidros triplos em todas as janelas. Isolamento térmico e acústico superior — silêncio e temperatura estáveis durante todo o ano.</p></div>
-      <div class="feature-card reveal reveal-delay-2"><span class="feature-icon">❄️</span><div class="feature-title" id="f2t">Daikin A+++ com Wi-Fi</div><p class="feature-desc" id="f2d">Ar condicionado Daikin A+++ em todos os quartos, controláveis remotamente via Wi-Fi. Eficiência energética máxima com a marca líder mundial em climatização.</p></div>
-      <div class="feature-card reveal reveal-delay-3"><span class="feature-icon">🔥</span><div class="feature-title" id="f3t">Lareira a Pellet Wi-Fi</div><p class="feature-desc" id="f3d">Lareira a pellet na sala, também com controlo por Wi-Fi. Aquecimento eficiente e ambiente sofisticado nas noites de inverno — sem fumo, sem esforço.</p></div>
+      <div class="feature-card reveal reveal-delay-2"><span class="feature-icon">❄️</span><div class="feature-title" id="f2t">Daikin A+++ com Wi-Fi</div><p class="feature-desc" id="f2d">Ar condicionado Daikin A+++ em todos os quartos, controlável remotamente via Wi-Fi. Eficiência energética máxima com a marca líder mundial em climatização.</p></div>
+      <div class="feature-card reveal reveal-delay-3"><span class="feature-icon">🔥</span><div class="feature-title" id="f3t">Recuperador a Pellets</div><p class="feature-desc" id="f3d">Recuperador de calor a pellets na sala — aquecimento eficiente e atmosfera acolhedora nas noites de inverno. O fogo que faz companhia, sem esforço.</p></div>
       <div class="feature-card reveal reveal-delay-4"><span class="feature-icon">💧</span><div class="feature-title" id="f4t">Bomba de Calor AQS</div><p class="feature-desc" id="f4d">Bomba de calor para aquecimento de águas sanitárias em todas as torneiras e chuveiros. Elevada eficiência energética e conforto permanente.</p></div>
-      <div class="feature-card reveal reveal-delay-1"><span class="feature-icon">🛁</span><div class="feature-title" id="f5t">Suíte com Chuveiro Duplo</div><p class="feature-desc" id="f5d">Suite principal com chuveiro duplo e banheira — um espaço de relaxamento privado que rivaliza com os melhores hotéis. Roupeiros embutidos em todos os quartos.</p></div>
-      <div class="feature-card reveal reveal-delay-2"><span class="feature-icon">🌅</span><div class="feature-title" id="f6t">Varanda Angular · Vista Mar</div><p class="feature-desc" id="f6d">Varanda de canto com vista directa para o Atlântico e conjunto de sofás incluído. Preparada para área gourmet com projecto já elaborado.</p></div>
-      <div class="feature-card reveal reveal-delay-3"><span class="feature-icon">📺</span><div class="feature-title" id="f7t">TVs 65" e 75" Incluídas</div><p class="feature-desc" id="f7d">TV de 75 polegadas na sala e TV de 65 polegadas em cada quarto. Mobiliário de alta qualidade das marcas El Corte Inglés e Áreas Infinitas, incluído no preço.</p></div>
-      <div class="feature-card reveal reveal-delay-4"><span class="feature-icon">🏗️</span><div class="feature-title" id="f8t">Open Space Siemens</div><p class="feature-desc" id="f8d">Cozinha Siemens de última geração integrada com a sala: placa de indução, forno e micro-ondas embutidos, máquina de lavar louça e frigorífico Samsung com dispensador de gelo.</p></div>
+      <div class="feature-card reveal reveal-delay-1"><span class="feature-icon">🛁</span><div class="feature-title" id="f5t">Suite com Chuveiro Duplo</div><p class="feature-desc" id="f5d">Suite principal com chuveiro duplo e banheira — um espaço de relaxamento privado que rivaliza com os melhores hotéis. Roupeiros embutidos em todos os quartos.</p></div>
+      <div class="feature-card reveal reveal-delay-2"><span class="feature-icon">🌅</span><div class="feature-title" id="f6t">Varanda Angular · Vista Mar</div><p class="feature-desc" id="f6d">Varanda de canto com vista para o Atlântico, zona de refeições exterior e churrasqueira Weber. Varanda envidraçada adicional orientada para o mar — utilizável todo o ano.</p></div>
+      <div class="feature-card reveal reveal-delay-3"><span class="feature-icon">🍳</span><div class="feature-title" id="f7t">Cozinha Open Space Siemens</div><p class="feature-desc" id="f7d">Cozinha integrada com a sala em conceito open space. Placa de indução, forno e micro-ondas Siemens encastrados, máquina de lavar louça e frigorífico americano Samsung.</p></div>
+      <div class="feature-card reveal reveal-delay-4"><span class="feature-icon">🏗️</span><div class="feature-title" id="f8t">Lavandaria Independente</div><p class="feature-desc" id="f8d">Lavandaria envidraçada separada com máquina de lavar e secar LG 11 kg — espaço funcional que as famílias valorizam e que a nova construção raramente oferece.</p></div>
     </div>
   </div>
 </section>
 
-<!-- BRANDS STRIP -->
 <div class="brands-strip">
   <div class="brands-inner">
     <div class="brands-label" id="brands-label">Marcas instaladas no imóvel</div>
@@ -396,7 +373,6 @@ footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:spa
   </div>
 </div>
 
-<!-- EQUIPAMENTOS DETALHADOS -->
 <section class="section" style="background:var(--white);padding-top:60px;">
   <div class="section-inner">
     <div class="reveal">
@@ -406,33 +382,32 @@ footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:spa
     <div class="equip-grid">
       <div class="equip-card reveal reveal-delay-1">
         <div class="equip-card-top"><span class="equip-card-icon">🌬️</span><div><div class="equip-card-title" id="eq1t">Ar Condicionado</div><span class="equip-card-brand">Daikin A+++ · Wi-Fi</span></div></div>
-        <p class="equip-card-desc" id="eq1d">Unidades de climatização instaladas em todos os quartos. Controlo remoto via aplicação Wi-Fi, eficiência energética máxima da classe A+++.</p>
+        <p class="equip-card-desc" id="eq1d">Unidades instaladas em todos os quartos. Controlo remoto via aplicação Wi-Fi, eficiência energética máxima da classe A+++.</p>
       </div>
       <div class="equip-card reveal reveal-delay-2">
         <div class="equip-card-top"><span class="equip-card-icon">🍳</span><div><div class="equip-card-title" id="eq2t">Cozinha Completa</div><span class="equip-card-brand">Siemens</span></div></div>
-        <p class="equip-card-desc" id="eq2d">Placa de indução, forno e micro-ondas embutidos, máquina de lavar louça — tudo Siemens de última geração, instalado e pronto a usar.</p>
+        <p class="equip-card-desc" id="eq2d">Placa de indução, forno e micro-ondas encastrados, máquina de lavar louça — tudo Siemens de última geração, instalado e pronto a usar.</p>
       </div>
       <div class="equip-card reveal reveal-delay-3">
         <div class="equip-card-top"><span class="equip-card-icon">🧊</span><div><div class="equip-card-title" id="eq3t">Frigorífico Americano</div><span class="equip-card-brand">Samsung</span></div></div>
-        <p class="equip-card-desc" id="eq3d">Frigorífico americano Samsung com dispensador de gelo e água filtrada incorporados. Capacidade extra-larga para famílias.</p>
+        <p class="equip-card-desc" id="eq3d">Com dispensador de gelo e água filtrada incorporados. Capacidade extra-larga para famílias.</p>
       </div>
       <div class="equip-card reveal reveal-delay-4">
         <div class="equip-card-top"><span class="equip-card-icon">👕</span><div><div class="equip-card-title" id="eq4t">Lava e Seca 11 kg</div><span class="equip-card-brand">LG</span></div></div>
-        <p class="equip-card-desc" id="eq4d">Máquina de lavar e secar roupa LG de 11 kg incluída. Capacidade para famílias exigentes, com as mais recentes tecnologias de lavagem.</p>
+        <p class="equip-card-desc" id="eq4d">Máquina de lavar e secar roupa de 11 kg em lavandaria independente envidraçada.</p>
       </div>
       <div class="equip-card reveal reveal-delay-1">
         <div class="equip-card-top"><span class="equip-card-icon">🔥</span><div><div class="equip-card-title" id="eq5t">Churrasqueira a Gás</div><span class="equip-card-brand">Weber</span></div></div>
-        <p class="equip-card-desc" id="eq5d">Churrasqueira a gás Weber — marca líder mundial — instalada na varanda. Acompanhada de conjunto de sofás para momentos de lazer ao ar livre.</p>
+        <p class="equip-card-desc" id="eq5d">Weber instalada na varanda exterior. Marca líder mundial em grelhadores — para os fins de semana com vista mar.</p>
       </div>
       <div class="equip-card reveal reveal-delay-2">
-        <div class="equip-card-top"><span class="equip-card-icon">🛋️</span><div><div class="equip-card-title" id="eq6t">Mobiliário de Design</div><span class="equip-card-brand">El Corte Inglés · Áreas Infinitas</span></div></div>
-        <p class="equip-card-desc" id="eq6d">Imóvel entregue mobilado com peças de alta qualidade. Armários planeados, luminárias modernas e TV 75" na sala + 65" em cada quarto — incluídos.</p>
+        <div class="equip-card-top"><span class="equip-card-icon">🏠</span><div><div class="equip-card-title" id="eq6t">Mobiliário</div><span class="equip-card-brand">Disponível mediante acordo</span></div></div>
+        <p class="equip-card-desc" id="eq6d">O imóvel dispõe de mobiliário de qualidade das marcas El Corte Inglés e Áreas Infinitas. Disponível mediante acordo separado.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SPLIT LOCATION -->
 <section class="split-section">
   <div class="split-visual">
     <div class="big-number">Gaia</div>
@@ -451,722 +426,540 @@ footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:spa
     <div class="reveal">
       <div class="section-label" id="loc-label">Localização</div>
       <h2 class="section-title" id="loc-title">O melhor de dois<br>mundos: mar e <em>cidade.</em></h2>
-      <p class="section-text" style="margin-bottom:22px" id="loc-text1">À esquerda do apartamento estende-se uma ciclovia costeira até Espinho — ideal para desporto e lazer. À direita, a pitoresca Restinga de Cabedelo conecta à Marina da Afurada no Rio Douro, com vistas espectaculares.</p>
+      <p class="section-text" style="margin-bottom:22px" id="loc-text1">À esquerda do apartamento estende-se uma ciclovia costeira até Espinho — ideal para desporto e lazer. À direita, a pitoresca Restinga de Cabedelo conecta à Marina da Afurada no Rio Douro.</p>
       <p class="section-text" id="loc-text2">A apenas 8 minutos do Porto e com acesso directo ao aeroporto Francisco Sá Carneiro, Canidelo combina a tranquilidade costeira com toda a dinâmica urbana da segunda maior área metropolitana de Portugal.</p>
     </div>
   </div>
 </section>
 
-<!-- AREA / SURROUNDINGS -->
 <section class="section area-section">
   <div class="section-inner">
     <div class="reveal"><div class="section-label" id="area-label">Envolvente</div><h2 class="section-title" id="area-title">Tudo o que precisa,<br>a <em>minutos</em> de distância.</h2></div>
     <div class="area-grid">
       <div class="area-points">
         <div class="area-point reveal reveal-delay-1"><div class="area-point-icon">🚲</div><div><div class="area-point-title" id="ap1t">Ciclovia até Espinho</div><p class="area-point-desc" id="ap1d">Extensa ciclovia costeira à porta de casa que percorre toda a orla marítima de Gaia até Espinho — ideal para ciclismo, jogging e passeios ao ar livre.</p></div></div>
-        <div class="area-point reveal reveal-delay-2"><div class="area-point-icon">⛵</div><div><div class="area-point-title" id="ap2t">Restinga de Cabedelo e Marina da Afurada</div><p class="area-point-desc" id="ap2d">À direita, a pitoresca restinga de Cabedelo conecta à Marina da Afurada no Rio Douro — vistas espectaculares e cultura piscatória autêntica.</p></div></div>
-        <div class="area-point reveal reveal-delay-3"><div class="area-point-icon">🏖️</div><div><div class="area-point-title" id="ap3t">Praia de Lavadores (2ª linha)</div><p class="area-point-desc" id="ap3d">Praia atlântica de bandeira azul, a poucos metros. Ideal para surf, natação e caminhadas com vista para o oceano.</p></div></div>
+        <div class="area-point reveal reveal-delay-2"><div class="area-point-icon">⛵</div><div><div class="area-point-title" id="ap2t">Restinga de Cabedelo e Marina da Afurada</div><p class="area-point-desc" id="ap2d">A pitoresca restinga conecta à Marina da Afurada no Rio Douro — vistas espectaculares e cultura piscatória autêntica.</p></div></div>
+        <div class="area-point reveal reveal-delay-3"><div class="area-point-icon">🏖️</div><div><div class="area-point-title" id="ap3t">Praia de Lavadores (2ª linha)</div><p class="area-point-desc" id="ap3d">Praia atlântica de bandeira azul, a poucos metros. Surf, natação e caminhadas com vista para o oceano.</p></div></div>
         <div class="area-point reveal reveal-delay-4"><div class="area-point-icon">🎓</div><div><div class="area-point-title" id="ap4t">Colégios de Referência</div><p class="area-point-desc" id="ap4d">Colégio Novo de Gaia e Agrupamento D. Pedro I nas imediações. Ensino público e privado de qualidade a poucos minutos.</p></div></div>
-        <div class="area-point reveal reveal-delay-1"><div class="area-point-icon">🛒</div><div><div class="area-point-title" id="ap5t">Comércio e Serviços</div><p class="area-point-desc" id="ap5d">Continente Bom Dia Canidelo e Auchan a menos de 1,5 km. Restaurantes, farmácias, clínicas e serviços bancários nas proximidades.</p></div></div>
+        <div class="area-point reveal reveal-delay-1"><div class="area-point-icon">🛒</div><div><div class="area-point-title" id="ap5t">Comércio e Serviços</div><p class="area-point-desc" id="ap5d">Continente e Auchan a menos de 1,5 km. Restaurantes, farmácias, clínicas e serviços bancários nas proximidades.</p></div></div>
       </div>
       <div class="area-stats reveal">
-        <div class="area-stat-card"><div class="area-stat-val">304k</div><div class="area-stat-label" id="as1">Habitantes em VN de Gaia</div></div>
-        <div class="area-stat-card"><div class="area-stat-val">2.524 €/m²</div><div class="area-stat-label" id="as2">Preço Médio na Zona</div></div>
+        <div class="area-stat-card"><div class="area-stat-val">4.799 €/m²</div><div class="area-stat-label" id="as1">Preço Médio em Lavadores/Canidelo</div></div>
+        <div class="area-stat-card"><div class="area-stat-val">3.548 €/m²</div><div class="area-stat-label" id="as2">Este Apartamento — 26% abaixo da média</div></div>
         <div class="area-stat-card"><div class="area-stat-val">↑ 12%</div><div class="area-stat-label" id="as3">Valorização Anual 2024–25</div></div>
-        <div class="area-stat-card"><div class="area-stat-val">3ª</div><div class="area-stat-label" id="as4">Maior Cidade de Portugal</div></div>
+        <div class="area-stat-card"><div class="area-stat-val">304k</div><div class="area-stat-label" id="as4">Habitantes em VN de Gaia</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- INVESTMENT POTENTIAL -->
 <section class="section invest-section">
   <div class="section-inner">
     <div class="reveal">
-      <div class="section-label" id="inv-label">Potencial de Valorização</div>
-      <h2 class="section-title" id="inv-title">Um projecto de 700M€<br>nasce mesmo <em>ao lado.</em></h2>
-      <p class="section-text" id="inv-text">Nos 21 hectares do antigo parque de campismo da Madalena, a 3 minutos deste apartamento, está em disputa um dos maiores projectos de investimento do Norte de Portugal. Independentemente do desfecho, o terreno terá uma intervenção de grande escala — tech hub ou ecoparque — com impacto directo na valorização imobiliária da zona.</p>
+      <div class="section-label" id="inv-label">Envolvente em Transformação</div>
+      <h2 class="section-title" id="inv-title">24 hectares junto ao mar<br>estão a <em>mudar.</em></h2>
+      <p class="section-text" id="inv-text">A 5 minutos deste apartamento, os 24 hectares do antigo parque de campismo da Madalena estão a ser transformados. Seja qual for o desfecho final — ecoparque público ou polo tecnológico — o impacto na zona costeira de Canidelo é o mesmo: mais qualidade de vida, mais visibilidade, mais valorização.</p>
     </div>
     <div class="invest-grid">
       <div class="invest-card reveal reveal-delay-1">
-        <div class="invest-card-num">700M€</div>
-        <div class="invest-card-title" id="ic1t">Gaia Infinity Hub</div>
-        <p class="invest-card-desc" id="ic1d">Projecto de investimento de origem brasileira para criar um mega polo tecnológico nos 21 hectares do antigo parque Orbitur da Madalena — desenhado para atrair gigantes tecnológicos internacionais para o Norte de Portugal.</p>
+        <div class="invest-card-num">🌿</div>
+        <div class="invest-card-title" id="ic1t">Ecoparque do Atlântico — Realidade</div>
+        <p class="invest-card-desc" id="ic1d">A Câmara de Gaia transformou os 24 hectares num parque urbano público aberto desde agosto de 2025. Ciclovia, picnic, campo de jogos, educação ambiental e Centro de Juventude em desenvolvimento — um pulmão verde junto ao mar, a 5 minutos.</p>
       </div>
       <div class="invest-card reveal reveal-delay-2">
-        <div class="invest-card-num">21 ha</div>
-        <div class="invest-card-title" id="ic2t">Dimensão do Projecto</div>
-        <p class="invest-card-desc" id="ic2d">A Câmara de Gaia anulou o contrato por incumprimento, mas os investidores garantem que vão recorrer. O terreno terá sempre uma intervenção de grande escala — tech hub ou ecoparque de referência.</p>
+        <div class="invest-card-num">🏗️</div>
+        <div class="invest-card-title" id="ic2t">Gaia Infinity Hub — Capítulo Aberto</div>
+        <p class="invest-card-desc" id="ic2d">O projecto original de 700M€ e 15.000 empregos directos foi cancelado pela autarquia por incumprimento contratual. Os promotores brasileiros garantem recurso. O terreno atraiu atenção internacional e comprovou o potencial estratégico desta faixa costeira.</p>
       </div>
     </div>
     <div class="hub-alert reveal">
       <div class="hub-alert-icon">📍</div>
-      <div class="hub-alert-text" id="hub-text"><strong>Localização estratégica:</strong> Este apartamento situa-se a poucos minutos do terreno em disputa. Qualquer desenvolvimento de escala nessa localização — tecnológico ou ambiental — implica necessariamente uma valorização significativa dos imóveis residenciais da área costeira de Canidelo.</div>
+      <div class="hub-alert-text" id="hub-text"><strong>O que é certo:</strong> O Ecoparque do Atlântico já existe e já valoriza a envolvente. Um parque urbano de 24 hectares junto ao mar, a 5 minutos deste apartamento, é um activo permanente — independentemente de qualquer decisão futura sobre o restante terreno.</div>
     </div>
-    <!-- YOUTUBE VIDEOS -->
     <div style="margin-top:56px" class="reveal">
       <div style="font-size:0.65rem;letter-spacing:0.25em;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-bottom:20px" id="yt-label">Conheça a área e a envolvente</div>
       <div class="yt-grid">
-
         <a class="yt-card" href="https://www.youtube.com/watch?v=thWU9F_AgEU" target="_blank" rel="noopener">
-          <div class="yt-thumb">
-            <img src="https://img.youtube.com/vi/thWU9F_AgEU/maxresdefault.jpg"
-                 onerror="this.src='https://img.youtube.com/vi/thWU9F_AgEU/hqdefault.jpg'"
-                 alt="Praia de Lavadores" loading="lazy">
-            <div class="yt-play"><div class="yt-play-btn"><div class="yt-play-icon"></div></div></div>
-          </div>
-          <div class="yt-info">
-            <div class="yt-info-label" id="yt1-label">Localização</div>
-            <div class="yt-info-title" id="yt1">Praia de Lavadores e o edifício</div>
-            <span class="yt-open-tag" id="yt-open1">▶ Abrir no YouTube</span>
-          </div>
+          <div class="yt-thumb"><img src="https://img.youtube.com/vi/thWU9F_AgEU/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/thWU9F_AgEU/hqdefault.jpg'" alt="Praia de Lavadores" loading="lazy"><div class="yt-play"><div class="yt-play-btn"><div class="yt-play-icon"></div></div></div></div>
+          <div class="yt-info"><div class="yt-info-label" id="yt1-label">Localização</div><div class="yt-info-title" id="yt1">Praia de Lavadores e o edifício</div><span class="yt-open-tag" id="yt-open1">▶ Abrir no YouTube</span></div>
         </a>
-
         <a class="yt-card" href="https://www.youtube.com/watch?v=gjyiDAgEiaE" target="_blank" rel="noopener">
-          <div class="yt-thumb">
-            <img src="https://img.youtube.com/vi/gjyiDAgEiaE/maxresdefault.jpg"
-                 onerror="this.src='https://img.youtube.com/vi/gjyiDAgEiaE/hqdefault.jpg'"
-                 alt="Canidelo" loading="lazy">
-            <div class="yt-play"><div class="yt-play-btn"><div class="yt-play-icon"></div></div></div>
-          </div>
-          <div class="yt-info">
-            <div class="yt-info-label" id="yt2-label">Envolvente</div>
-            <div class="yt-info-title" id="yt2">Canidelo e arredores</div>
-            <span class="yt-open-tag" id="yt-open2">▶ Abrir no YouTube</span>
-          </div>
+          <div class="yt-thumb"><img src="https://img.youtube.com/vi/gjyiDAgEiaE/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/gjyiDAgEiaE/hqdefault.jpg'" alt="Canidelo" loading="lazy"><div class="yt-play"><div class="yt-play-btn"><div class="yt-play-icon"></div></div></div></div>
+          <div class="yt-info"><div class="yt-info-label" id="yt2-label">Envolvente</div><div class="yt-info-title" id="yt2">Canidelo e arredores</div><span class="yt-open-tag" id="yt-open2">▶ Abrir no YouTube</span></div>
         </a>
-
         <a class="yt-card" href="https://www.youtube.com/watch?v=v-CGBR1IeCc" target="_blank" rel="noopener">
-          <div class="yt-thumb">
-            <img src="https://img.youtube.com/vi/v-CGBR1IeCc/maxresdefault.jpg"
-                 onerror="this.src='https://img.youtube.com/vi/v-CGBR1IeCc/hqdefault.jpg'"
-                 alt="Vila Nova de Gaia" loading="lazy">
-            <div class="yt-play"><div class="yt-play-btn"><div class="yt-play-icon"></div></div></div>
-          </div>
-          <div class="yt-info">
-            <div class="yt-info-label" id="yt3-label">Região</div>
-            <div class="yt-info-title" id="yt3">Vila Nova de Gaia</div>
-            <span class="yt-open-tag" id="yt-open3">▶ Abrir no YouTube</span>
-          </div>
+          <div class="yt-thumb"><img src="https://img.youtube.com/vi/v-CGBR1IeCc/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/v-CGBR1IeCc/hqdefault.jpg'" alt="Vila Nova de Gaia" loading="lazy"><div class="yt-play"><div class="yt-play-btn"><div class="yt-play-icon"></div></div></div></div>
+          <div class="yt-info"><div class="yt-info-label" id="yt3-label">Região</div><div class="yt-info-title" id="yt3">Vila Nova de Gaia</div><span class="yt-open-tag" id="yt-open3">▶ Abrir no YouTube</span></div>
         </a>
-
       </div>
     </div>
   </div>
 </section>
 
-<!-- IMI -->
 <section class="section imi-section">
   <div class="section-inner">
     <div class="reveal">
       <div class="section-label" id="imi-label">Vantagem Fiscal</div>
-      <h2 class="section-title" id="imi-title">A diferença que ninguém<br>lhe conta sobre o <em>IMI.</em></h2>
-      <p class="section-text" id="imi-text">Em Portugal, o IMI é calculado sobre o Valor Patrimonial Tributário do imóvel — e em edifícios mais antigos esse valor é substancialmente inferior ao de construções novas, traduzindo-se numa poupança fiscal significativa todos os anos.</p>
+      <h2 class="section-title" id="imi-title">Conforto de imóvel novo.<br>IMI de imóvel <em>antigo.</em></h2>
+      <p class="section-text" id="imi-text">Em Portugal, o IMI é calculado sobre o Valor Patrimonial Tributário — não sobre o preço de mercado. Em edifícios mais antigos, o coeficiente de vetustez reduz significativamente esse valor, independentemente da qualidade da remodelação. É uma vantagem fiscal automática, perpétua, que a nova construção nunca pode oferecer.</p>
     </div>
     <div class="imi-cards">
-      <div class="imi-card reveal reveal-delay-1"><div class="imi-card-num">~85%</div><div class="imi-card-title" id="imic1t">Menos IMI Anual</div><p class="imi-card-desc" id="imic1d">Comparado com nova construção equivalente, este imóvel de 1988 totalmente renovado paga significativamente menos imposto — sem qualquer penalização na qualidade de vida.</p></div>
-      <div class="imi-card reveal reveal-delay-2"><div class="imi-card-num">10 anos</div><div class="imi-card-title" id="imic2t">Poupança Acumulada</div><p class="imi-card-desc" id="imic2d">A diferença de IMI ao longo de uma década equivale ao custo de um automóvel médio. Dinheiro que fica no seu bolso, ano após ano, automaticamente.</p></div>
-      <div class="imi-card reveal reveal-delay-3"><div class="imi-card-num">1988</div><div class="imi-card-title" id="imic3t">Ano de Construção</div><p class="imi-card-desc" id="imic3d">Edifício com construção sólida e madura, 100% renovado por dentro. O VPT mantém-se muito inferior ao de imóveis recentes — benefício fiscal automático e perpétuo.</p></div>
-      <div class="imi-card reveal reveal-delay-4"><div class="imi-card-num">100%</div><div class="imi-card-title" id="imic4t">Remodelado</div><p class="imi-card-desc" id="imic4d">Canalizações, elétrica, quadro de luz, tecto, revestimentos e caixilharia — tudo novo. Vantagem fiscal de imóvel antigo com conforto de imóvel novo.</p></div>
+      <div class="imi-card reveal reveal-delay-1"><div class="imi-card-num">~43%</div><div class="imi-card-title" id="imic1t">Menos IMI Anual</div><p class="imi-card-desc" id="imic1d">Comparado com uma construção nova de valor equivalente em Canidelo, este apartamento paga cerca de 43% menos IMI por ano — resultado directo do coeficiente de vetustez aplicado a edifícios com mais de 35 anos.</p></div>
+      <div class="imi-card reveal reveal-delay-2"><div class="imi-card-num">1988</div><div class="imi-card-title" id="imic2t">Ano de Construção</div><p class="imi-card-desc" id="imic2d">Edifício sólido e maduro, 100% remodelado por dentro. O Valor Patrimonial Tributário mantém-se muito inferior ao de imóveis recentes — uma vantagem que o tempo só consolida.</p></div>
+      <div class="imi-card reveal reveal-delay-3"><div class="imi-card-num">0,30%</div><div class="imi-card-title" id="imic3t">Taxa IMI em Vila Nova de Gaia</div><p class="imi-card-desc" id="imic3d">Vila Nova de Gaia aplica a taxa mínima de IMI permitida por lei — 0,30% sobre o VPT. Uma das mais baixas do país, favorável a qualquer proprietário neste município.</p></div>
+      <div class="imi-card reveal reveal-delay-4"><div class="imi-card-num">100%</div><div class="imi-card-title" id="imic4t">Remodelado — sem penalização</div><p class="imi-card-desc" id="imic4d">A remodelação não aumenta o IMI. Canalizações, eléctrica, tecto, revestimentos e caixilharia novos — tudo actualizado sem qualquer consequência fiscal. A vantagem mantém-se intacta.</p></div>
     </div>
-    <div class="imi-highlight reveal"><div class="imi-highlight-icon">💡</div><div class="imi-highlight-text" id="imi-quote">"Um imóvel antigo renovado pode poupar ao proprietário o custo de um carro durante 10 anos, apenas em IMI — comparado com uma construção nova de valor semelhante."</div></div>
+    <div class="imi-highlight reveal"><div class="imi-highlight-icon">💡</div><div class="imi-highlight-text" id="imi-quote">"A mesma remodelação, o mesmo conforto, os mesmos equipamentos — e cerca de 43% menos imposto por ano do que pagaria num apartamento novo equivalente. Ano após ano, automaticamente."</div></div>
   </div>
 </section>
 
-<!-- SPECS -->
-<section class="section" style="background:var(--sand)">
-  <div class="section-inner">
-    <div class="reveal"><div class="section-label" id="spec-label">Ficha Técnica</div><h2 class="section-title" id="spec-title">Todos os <em>detalhes</em><br>do imóvel.</h2></div>
-    <div class="specs-grid reveal">
-      <div class="spec-row"><span class="spec-key" id="sk1">Tipologia</span><span class="spec-val">T3 + Divisão</span></div>
-      <div class="spec-row"><span class="spec-key" id="sk2">Área Bruta</span><span class="spec-val">213 m²</span></div>
-      <div class="spec-row"><span class="spec-key" id="sk3">Área Útil</span><span class="spec-val">155 m²</span></div>
-      <div class="spec-row"><span class="spec-key" id="sk4">Casas de Banho</span><span class="spec-val">2 WC (1 Suíte)</span></div>
-      <div class="spec-row"><span class="spec-key" id="sk5">Andar</span><span class="spec-val">1º com Elevador</span></div>
-      <div class="spec-row"><span class="spec-key" id="sk6">Estacionamento</span><span class="spec-val">Garagem + portão eléctrico</span></div>
-      <div class="spec-row"><span class="spec-key" id="sk7">Ano de Construção</span><span class="spec-val">1988</span></div>
-      <div class="spec-row"><span class="spec-key" id="sk8">Estado</span><span class="spec-val" id="sv8">Totalmente Renovado</span></div>
-      <div class="spec-row"><span class="spec-key" id="sk9">Orientação Solar</span><span class="spec-val">Este / Oeste</span></div>
-      <div class="spec-row"><span class="spec-key" id="sk10">Vista</span><span class="spec-val" id="sv10">Oceano Atlântico</span></div>
-      <div class="spec-row"><span class="spec-key" id="sk11">Climatização</span><span class="spec-val">Daikin A+++ + Lareira Pellet</span></div>
-      <div class="spec-row"><span class="spec-key" id="sk12">Condomínio</span><span class="spec-val">61 €/mês</span></div>
-      <div class="spec-row"><span class="spec-key" id="sk13">Pavimento</span><span class="spec-val">Porcelanato Revigres</span></div>
-      <div class="spec-row"><span class="spec-key" id="sk14">Caixilharia</span><span class="spec-val" id="sv13">Vidros Triplos</span></div>
-      <div class="spec-row"><span class="spec-key" id="sk15">Mobília</span><span class="spec-val" id="sv15">Incluída (negociável)</span></div>
-      <div class="spec-row"><span class="spec-key" id="sk16">Preço</span><span class="spec-val" style="color:var(--ocean);font-size:1.2rem">599.000 €</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
 <section class="cta-section">
   <div class="cta-inner reveal">
     <div class="section-label" style="justify-content:center;color:var(--gold)" id="cta-label">Agendar Visita</div>
     <h2 class="section-title" id="cta-title">Pronto a <em>viver</em><br>à beira-mar?</h2>
-    <p class="cta-subtitle" id="cta-text">Venda direta através da Listoo — comissão fixa de apenas 5.000€ + IVA, sem percentagens. Transparência total do início ao fim.</p>
+    <p class="cta-subtitle" id="cta-text">Venda directa pelo proprietário. Aberto a colaboração com mediadores imobiliários — comissão de 2,5% + IVA a cargo do vendedor, mediante acordo prévio.</p>
     <div class="cta-btns">
-      <a href="https://www.idealista.pt/imovel/35020997/" target="_blank" class="btn-primary" id="cta-btn1">Ver Anúncio Original</a>
-      <a href="https://my.matterport.com/show/?m=dq2w5rSXTjR" target="_blank" class="btn-secondary" id="cta-btn2">Visita Virtual 3D</a>
+      <a href="https://my.matterport.com/show/?m=dq2w5rSXTjR" target="_blank" class="btn-primary" id="cta-btn1">Visita Virtual 3D</a>
+      <a href="mailto:kathia.vianna@yahoo.com.br" class="btn-secondary" id="cta-btn2">Contactar Proprietário</a>
     </div>
-    <p style="margin-top:36px;font-size:0.7rem;color:rgba(255,255,255,0.3);letter-spacing:0.15em" id="cta-ref">Referência: L2026343 · Listoo Porto · AMI 19516</p>
+    <p style="margin-top:36px;font-size:0.7rem;color:rgba(255,255,255,0.3);letter-spacing:0.15em" id="cta-ref">Canidelo · Vila Nova de Gaia · Venda Directa pelo Proprietário</p>
   </div>
 </section>
 
 <footer>
   <div class="footer-brand">Canidelo · Vista Mar</div>
-  <div class="footer-note" id="f-note">© 2025 · T3+1 · Rua Jorge Dias, Canidelo, Vila Nova de Gaia</div>
+  <div class="footer-note" id="f-note">© 2026 · T3+1 · Rua Jorge Dias, Canidelo, Vila Nova de Gaia</div>
 </footer>
 
+<a href="https://wa.me/351933387497?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20apartamento%20T3%2B1%20em%20Canidelo.%20Podemos%20falar%3F" target="_blank" rel="noopener" class="whatsapp-float" id="whatsapp-btn">
+  <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  <div class="whatsapp-text">
+    <span class="whatsapp-label">Contactar via</span>
+    <span class="whatsapp-title">WhatsApp</span>
+  </div>
+</a>
+
 <script>
-// PHOTOS
-const BASE_ID=317007562,TOTAL=26,DIR='35/ae/5b';
-const EMOJIS=['🌊','🛋️','🍳','🛁','🌅','🚗','🏠','🛏️','🪟','💡','📷','🌡️','❄️','🔥','💧','🛁','📺','🏗️','🌬️','👕','🏋️','⛵','🚲','🎓','🛒','📐'];
-const LABELS_PT=['Cozinha Open Space','Sala de Estar','Sala de Jantar','Vista Mar · Varanda','Varanda Angular','Cozinha (detalhe)','Hall de Entrada','Quarto Suite','WC Suite','WC Principal','Quarto 2','Quarto 3','Divisão Extra','Roupeiros Embutidos','Lareira Pellet','Sala (ângulo)','Varanda (exterior)','Vista Oceano','Vista Oceano 2','Corredor','Arrecadação','Garagem','Edifício','Entrada','Fachada','Planta'];
+const _photos=[
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/25.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/09.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/19.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/18.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/03.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/05.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/06.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/07.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/14.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/24.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/12.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/16.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/21.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/23.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/10.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/04.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/08.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/13.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/15.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/17.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/20.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/22.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/11.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/02.jpg",
+"https://cdn.jsdelivr.net/gh/souzalrns/canidelo-vista-mar@main/01.jpg"
+];
+const _labels=[
+"Vista Mar · Atlântico",
+"Varanda Envidraçada · Vista Mar",
+"Varandão · Churrasqueira Weber",
+"Varandão · Zona de Refeições",
+"Sala · Open Space",
+"Sala de Estar",
+"Cozinha Open Space",
+"Cozinha (detalhe)",
+"Suite · Banheira e Chuveiro Duplo",
+"Casa de Banho Social",
+"Suite · Quarto",
+"Quarto com Varanda",
+"Quarto 3",
+"Escritório",
+"Lavandaria",
+"Sala de Estar (ângulo)",
+"Cozinha Vista Sala",
+"Suite · Casa de Banho",
+"Quarto com Varanda · Entrada",
+"Quarto com Varanda · Cama",
+"Quarto 3 · Entrada",
+"Quarto 3 · Cama",
+"Corredor",
+"Hall de Entrada",
+"Fachada"
+];
+const _emojis=["🌊","🛋️","🍖","🍽️","🛋️","🛋️","🍳","🔪","🛁","🚿","🛏️","🛏️","🛏️","💻","👕","🛋️","🍳","🚪","🛏️","📺","🛏️","🛏️","🚶","🚪","🏠"];
 
 function buildPhotoGrid(){
   var grid=document.getElementById('photoGrid');
-  window._photos=["https://lh3.googleusercontent.com/d/1cex0rhMmE-DbpW3C1rTlNlXX_nOO2SO6=w1600",
-  "https://lh3.googleusercontent.com/d/1Tsbikvq6aKPohXe8ykVEk3UDUi_sLvdp=w1600",
-  "https://lh3.googleusercontent.com/d/1rOscn9qdQ_Ouk0TaC7sjirtP7SqvIvnP=w1600",
-  "https://lh3.googleusercontent.com/d/1Km1CP4uouwTId4ZvJ75NPKcMIqkh0tNB=w1600",
-  "https://lh3.googleusercontent.com/d/1awq4cJHzZf-firBbcJcu-8TbaOpJHQQV=w1600",
-  "https://lh3.googleusercontent.com/d/1OjbZkud5tFJlkmsOONXqKt-Jaiid2HI3=w1600",
-  "https://lh3.googleusercontent.com/d/1ThiZ6c7GJj2cn8zrbQWvcFvMseCohr3D=w1600",
-  "https://lh3.googleusercontent.com/d/1fQ6a2WyS22IXZqpIWxPvNIRwybqbmcRw=w1600",
-  "https://lh3.googleusercontent.com/d/1jnydQAEL8M82RnsWkt6ujfxaH7pIZbSK=w1600",
-  "https://lh3.googleusercontent.com/d/1o5QAdYZG_LQcOBf9-NjoYxmw6UOlbyuk=w1600",
-  "https://lh3.googleusercontent.com/d/13L5QwFAke4syNIctmtd_ZI2Jhc8yQ8eA=w1600",
-  "https://lh3.googleusercontent.com/d/1qMMf7M3zK1IqiPYB15tcZyW6jL_K3NSZ=w1600",
-  "https://lh3.googleusercontent.com/d/1PMy3k6VqX3TevnyQd3EnmzEcsJpOfdjt=w1600",
-  "https://lh3.googleusercontent.com/d/1Le6rX-4eU7x4I0A16isDKp4q2Scq8j7w=w1600",
-  "https://lh3.googleusercontent.com/d/1mJwtXhbxtAM2ozIAgWjwyO-QVQ15Pv33=w1600",
-  "https://lh3.googleusercontent.com/d/1m-qjxSCY8rl9TCfM4r9UkLGKM_BN5F8D=w1600",
-  "https://lh3.googleusercontent.com/d/1TDUCUwLlqejz9ehn9rGZ3p3y3fkgoA5w=w1600",
-  "https://lh3.googleusercontent.com/d/1cXA5fElIfIe4cQsiOdXOHBnnFL0qxVve=w1600",
-  "https://lh3.googleusercontent.com/d/16MHU0PMCTfdYi6gMipQRkMG5fUVPdmq-=w1600",
-  "https://lh3.googleusercontent.com/d/1yUxKS_JQoGqjpOTjWjpdq960zGfgSra3=w1600",
-  "https://lh3.googleusercontent.com/d/15eWZRuDaNeZTfu1PDkBKXyPusNM5m1HD=w1600",
-  "https://lh3.googleusercontent.com/d/1SzyYrOykEtw-SzYD32r0y2X-MX1ZN3O7=w1600",
-  "https://lh3.googleusercontent.com/d/1IoiVTL7BBQ_3R046DxdbrXzcDKSDoHKB=w1600",
-  "https://lh3.googleusercontent.com/d/17avmPLmTdD0_zYWkvztlZgqJpt3alEDb=w1600",
-  "https://lh3.googleusercontent.com/d/1fwaRmWB7472islOjLtoMC6E2hgkRtwrO=w1600",
-  "https://lh3.googleusercontent.com/d/1wtam3aHqXibVmR9ksjxO6u4FtYA0vUaQ=w1600",
-  "https://lh3.googleusercontent.com/d/1-4n6juh7e__QnOgyhTZfsAaBf1WuqqfY=w1600",
-  "https://lh3.googleusercontent.com/d/1HDKwmzy7dUCYOglmSP5RkYZeibq9w_cf=w1600",
-  "https://lh3.googleusercontent.com/d/17RTdsyM5SjaN5OzT7JJFrqQT4hQdczOu=w1600",
-  "https://lh3.googleusercontent.com/d/1NHo5cpklEhlJy6RtvTUrNUxjX1KBMzRH=w1600"];
-  window._labels=["Cozinha Open Space",
-  "Sala de Estar",
-  "Sala de Jantar",
-  "Vista Mar · Varanda",
-  "Varanda Angular",
-  "Cozinha (detalhe)",
-  "Hall de Entrada",
-  "Quarto Suite",
-  "WC Suite",
-  "WC Principal",
-  "Quarto 2",
-  "Quarto 3",
-  "Divisão Extra",
-  "Roupeiros",
-  "Lareira Pellet",
-  "Sala (ângulo)",
-  "Varanda (exterior)",
-  "Vista Oceano",
-  "Vista Oceano 2",
-  "Corredor",
-  "Arrecadação",
-  "Garagem",
-  "Edifício",
-  "Entrada",
-  "Fachada",
-  "Planta",
-  "Interior 1",
-  "Interior 2",
-  "Interior 3",
-  "Exterior"];
-
-  (function() {
-    var cell = document.createElement('div'); cell.className='photo-cell';
-    cell.setAttribute('data-idx','0');
-  cell.style.gridColumn='1/3'; cell.style.gridRow='1/3';
-    var img = document.createElement('img');
-    img.src='https://lh3.googleusercontent.com/d/1cex0rhMmE-DbpW3C1rTlNlXX_nOO2SO6=w1600';
-    img.alt='Cozinha Open Space';
-    img.loading='eager';
-    img.referrerPolicy='no-referrer';
-    var ph = document.createElement('div'); ph.className='ph';
-    ph.innerHTML='<span>🍳</span>Cozinha Open Space';
-    img.onload=function(){ph.style.display='none';};
-    img.onerror=function(){img.style.display='none'; ph.style.display='flex';};
-    cell.appendChild(img); cell.appendChild(ph);
-    cell.addEventListener('click', function(){openLightbox(0, _photos, _labels);});
+  var showCount=Math.min(13,_photos.length);
+  for(var i=0;i<showCount;i++){
+    var cell=document.createElement('div');cell.className='photo-cell';
+    if(i===0){cell.style.gridColumn='1/3';cell.style.gridRow='1/3';cell.style.height='444px';}
+    var idx=i;
+    var img=document.createElement('img');img.src=_photos[i];img.alt=_labels[i];img.loading=i<4?'eager':'lazy';img.referrerPolicy='no-referrer';
+    var ph=document.createElement('div');ph.className='ph';ph.innerHTML='<span>'+_emojis[i]+'</span>'+_labels[i];
+    img.onload=function(){this.nextSibling.style.display='none';};
+    img.onerror=function(){this.style.display='none';this.nextSibling.style.display='flex';};
+    cell.appendChild(img);cell.appendChild(ph);
+    cell.addEventListener('click',(function(n){return function(){openLightbox(n);};})(idx));
     grid.appendChild(cell);
-  })();
-
-  (function() {
-    var cell = document.createElement('div'); cell.className='photo-cell';
-    cell.setAttribute('data-idx','1');
-    var img = document.createElement('img');
-    img.src='https://lh3.googleusercontent.com/d/1Tsbikvq6aKPohXe8ykVEk3UDUi_sLvdp=w1600';
-    img.alt='Sala de Estar';
-    img.loading='eager';
-    img.referrerPolicy='no-referrer';
-    var ph = document.createElement('div'); ph.className='ph';
-    ph.innerHTML='<span>🛋️</span>Sala de Estar';
-    img.onload=function(){ph.style.display='none';};
-    img.onerror=function(){img.style.display='none'; ph.style.display='flex';};
-    cell.appendChild(img); cell.appendChild(ph);
-    cell.addEventListener('click', function(){openLightbox(1, _photos, _labels);});
-    grid.appendChild(cell);
-  })();
-
-  (function() {
-    var cell = document.createElement('div'); cell.className='photo-cell';
-    cell.setAttribute('data-idx','2');
-    var img = document.createElement('img');
-    img.src='https://lh3.googleusercontent.com/d/1rOscn9qdQ_Ouk0TaC7sjirtP7SqvIvnP=w1600';
-    img.alt='Sala de Jantar';
-    img.loading='eager';
-    img.referrerPolicy='no-referrer';
-    var ph = document.createElement('div'); ph.className='ph';
-    ph.innerHTML='<span>🍽️</span>Sala de Jantar';
-    img.onload=function(){ph.style.display='none';};
-    img.onerror=function(){img.style.display='none'; ph.style.display='flex';};
-    cell.appendChild(img); cell.appendChild(ph);
-    cell.addEventListener('click', function(){openLightbox(2, _photos, _labels);});
-    grid.appendChild(cell);
-  })();
-
-  (function() {
-    var cell = document.createElement('div'); cell.className='photo-cell';
-    cell.setAttribute('data-idx','3');
-    var img = document.createElement('img');
-    img.src='https://lh3.googleusercontent.com/d/1Km1CP4uouwTId4ZvJ75NPKcMIqkh0tNB=w1600';
-    img.alt='Vista Mar · Varanda';
-    img.loading='eager';
-    img.referrerPolicy='no-referrer';
-    var ph = document.createElement('div'); ph.className='ph';
-    ph.innerHTML='<span>🌊</span>Vista Mar · Varanda';
-    img.onload=function(){ph.style.display='none';};
-    img.onerror=function(){img.style.display='none'; ph.style.display='flex';};
-    cell.appendChild(img); cell.appendChild(ph);
-    cell.addEventListener('click', function(){openLightbox(3, _photos, _labels);});
-    grid.appendChild(cell);
-  })();
-
-  (function() {
-    var cell = document.createElement('div'); cell.className='photo-cell';
-    cell.setAttribute('data-idx','4');
-    var img = document.createElement('img');
-    img.src='https://lh3.googleusercontent.com/d/1awq4cJHzZf-firBbcJcu-8TbaOpJHQQV=w1600';
-    img.alt='Varanda Angular';
-    img.loading='lazy';
-    img.referrerPolicy='no-referrer';
-    var ph = document.createElement('div'); ph.className='ph';
-    ph.innerHTML='<span>🌅</span>Varanda Angular';
-    img.onload=function(){ph.style.display='none';};
-    img.onerror=function(){img.style.display='none'; ph.style.display='flex';};
-    cell.appendChild(img); cell.appendChild(ph);
-    cell.addEventListener('click', function(){openLightbox(4, _photos, _labels);});
-    grid.appendChild(cell);
-  })();
-
-  (function() {
-    var cell = document.createElement('div'); cell.className='photo-cell';
-    cell.setAttribute('data-idx','5');
-  cell.style.gridColumn='3/5';
-    var img = document.createElement('img');
-    img.src='https://lh3.googleusercontent.com/d/1OjbZkud5tFJlkmsOONXqKt-Jaiid2HI3=w1600';
-    img.alt='Cozinha (detalhe)';
-    img.loading='lazy';
-    img.referrerPolicy='no-referrer';
-    var ph = document.createElement('div'); ph.className='ph';
-    ph.innerHTML='<span>🔪</span>Cozinha (detalhe)';
-    img.onload=function(){ph.style.display='none';};
-    img.onerror=function(){img.style.display='none'; ph.style.display='flex';};
-    cell.appendChild(img); cell.appendChild(ph);
-    cell.addEventListener('click', function(){openLightbox(5, _photos, _labels);});
-    grid.appendChild(cell);
-  })();
-
-  (function() {
-    var cell = document.createElement('div'); cell.className='photo-cell';
-    cell.setAttribute('data-idx','6');
-    var img = document.createElement('img');
-    img.src='https://lh3.googleusercontent.com/d/1ThiZ6c7GJj2cn8zrbQWvcFvMseCohr3D=w1600';
-    img.alt='Hall de Entrada';
-    img.loading='lazy';
-    img.referrerPolicy='no-referrer';
-    var ph = document.createElement('div'); ph.className='ph';
-    ph.innerHTML='<span>🚪</span>Hall de Entrada';
-    img.onload=function(){ph.style.display='none';};
-    img.onerror=function(){img.style.display='none'; ph.style.display='flex';};
-    cell.appendChild(img); cell.appendChild(ph);
-    cell.addEventListener('click', function(){openLightbox(6, _photos, _labels);});
-    grid.appendChild(cell);
-  })();
-
-  (function() {
-    var cell = document.createElement('div'); cell.className='photo-cell';
-    cell.setAttribute('data-idx','7');
-    var img = document.createElement('img');
-    img.src='https://lh3.googleusercontent.com/d/1fQ6a2WyS22IXZqpIWxPvNIRwybqbmcRw=w1600';
-    img.alt='Quarto Suite';
-    img.loading='lazy';
-    img.referrerPolicy='no-referrer';
-    var ph = document.createElement('div'); ph.className='ph';
-    ph.innerHTML='<span>🛏️</span>Quarto Suite';
-    img.onload=function(){ph.style.display='none';};
-    img.onerror=function(){img.style.display='none'; ph.style.display='flex';};
-    cell.appendChild(img); cell.appendChild(ph);
-    cell.addEventListener('click', function(){openLightbox(7, _photos, _labels);});
-    grid.appendChild(cell);
-  })();
-
-  (function() {
-    var cell = document.createElement('div'); cell.className='photo-cell';
-    cell.setAttribute('data-idx','8');
-    var img = document.createElement('img');
-    img.src='https://lh3.googleusercontent.com/d/1jnydQAEL8M82RnsWkt6ujfxaH7pIZbSK=w1600';
-    img.alt='WC Suite';
-    img.loading='lazy';
-    img.referrerPolicy='no-referrer';
-    var ph = document.createElement('div'); ph.className='ph';
-    ph.innerHTML='<span>🚿</span>WC Suite';
-    img.onload=function(){ph.style.display='none';};
-    img.onerror=function(){img.style.display='none'; ph.style.display='flex';};
-    cell.appendChild(img); cell.appendChild(ph);
-    cell.addEventListener('click', function(){openLightbox(8, _photos, _labels);});
-    grid.appendChild(cell);
-  })();
-
-  (function() {
-    var cell = document.createElement('div'); cell.className='photo-cell';
-    cell.setAttribute('data-idx','9');
-    var img = document.createElement('img');
-    img.src='https://lh3.googleusercontent.com/d/1o5QAdYZG_LQcOBf9-NjoYxmw6UOlbyuk=w1600';
-    img.alt='WC Principal';
-    img.loading='lazy';
-    img.referrerPolicy='no-referrer';
-    var ph = document.createElement('div'); ph.className='ph';
-    ph.innerHTML='<span>🛁</span>WC Principal';
-    img.onload=function(){ph.style.display='none';};
-    img.onerror=function(){img.style.display='none'; ph.style.display='flex';};
-    cell.appendChild(img); cell.appendChild(ph);
-    cell.addEventListener('click', function(){openLightbox(9, _photos, _labels);});
-    grid.appendChild(cell);
-  })();
-
-  (function() {
-    var cell = document.createElement('div'); cell.className='photo-cell';
-    cell.setAttribute('data-idx','10');
-    var img = document.createElement('img');
-    img.src='https://lh3.googleusercontent.com/d/13L5QwFAke4syNIctmtd_ZI2Jhc8yQ8eA=w1600';
-    img.alt='Quarto 2';
-    img.loading='lazy';
-    img.referrerPolicy='no-referrer';
-    var ph = document.createElement('div'); ph.className='ph';
-    ph.innerHTML='<span>🛏️</span>Quarto 2';
-    img.onload=function(){ph.style.display='none';};
-    img.onerror=function(){img.style.display='none'; ph.style.display='flex';};
-    cell.appendChild(img); cell.appendChild(ph);
-    cell.addEventListener('click', function(){openLightbox(10, _photos, _labels);});
-    grid.appendChild(cell);
-  })();
-
-  (function() {
-    var cell = document.createElement('div'); cell.className='photo-cell';
-    cell.setAttribute('data-idx','11');
-    var img = document.createElement('img');
-    img.src='https://lh3.googleusercontent.com/d/1qMMf7M3zK1IqiPYB15tcZyW6jL_K3NSZ=w1600';
-    img.alt='Quarto 3';
-    img.loading='lazy';
-    img.referrerPolicy='no-referrer';
-    var ph = document.createElement('div'); ph.className='ph';
-    ph.innerHTML='<span>🛏️</span>Quarto 3';
-    img.onload=function(){ph.style.display='none';};
-    img.onerror=function(){img.style.display='none'; ph.style.display='flex';};
-    cell.appendChild(img); cell.appendChild(ph);
-    cell.addEventListener('click', function(){openLightbox(11, _photos, _labels);});
-    grid.appendChild(cell);
-  })();
-
-  (function() {
-    var cell = document.createElement('div'); cell.className='photo-cell';
-    cell.setAttribute('data-idx','12');
-    var img = document.createElement('img');
-    img.src='https://lh3.googleusercontent.com/d/1PMy3k6VqX3TevnyQd3EnmzEcsJpOfdjt=w1600';
-    img.alt='Divisão Extra';
-    img.loading='lazy';
-    img.referrerPolicy='no-referrer';
-    var ph = document.createElement('div'); ph.className='ph';
-    ph.innerHTML='<span>📦</span>Divisão Extra';
-    img.onload=function(){ph.style.display='none';};
-    img.onerror=function(){img.style.display='none'; ph.style.display='flex';};
-    cell.appendChild(img); cell.appendChild(ph);
-    cell.addEventListener('click', function(){openLightbox(12, _photos, _labels);});
-    grid.appendChild(cell);
-  })();
-
-  // "View all" cell
-  var allCell=document.createElement('a'); allCell.className='view-all-cell';
-  allCell.href='https://www.idealista.pt/imovel/35020997/'; allCell.target='_blank';
-  allCell.innerHTML='<span class="view-all-icon">📷</span><span class="view-all-text" id="see-all-txt">Ver todas as fotos</span>';
-  grid.appendChild(allCell);
+  }
 }
 
-// LIGHTBOX
-let lbIdx=0;
-function openLightbox(idx,photos,labels){lbIdx=idx;document.getElementById('lbImg').src=photos[idx];document.getElementById('lbCounter').textContent=`${idx+1} / ${photos.length}`;document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
+var lbIdx=0;
+function openLightbox(idx){lbIdx=idx;document.getElementById('lbImg').src=_photos[idx];document.getElementById('lbCounter').textContent=(idx+1)+' / '+_photos.length;document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
 function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
-function lbNav(dir){lbIdx=(lbIdx+dir+window._photos.length)%window._photos.length;document.getElementById('lbImg').src=window._photos[lbIdx];document.getElementById('lbCounter').textContent=`${lbIdx+1} / ${window._photos.length}`;}
-document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1);});
-document.getElementById('lightbox').addEventListener('click',e=>{if(e.target===document.getElementById('lightbox'))closeLightbox();});
+function lbNav(dir){lbIdx=(lbIdx+dir+_photos.length)%_photos.length;document.getElementById('lbImg').src=_photos[lbIdx];document.getElementById('lbCounter').textContent=(lbIdx+1)+' / '+_photos.length;}
+document.addEventListener('keydown',function(e){if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='Escape')closeLightbox();if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1);});
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===document.getElementById('lightbox'))closeLightbox();});
 
-// TRANSLATIONS
+function switchVideo(btn,fileId){
+  var iframe=document.querySelector('iframe[src*="drive.google"]');
+  if(iframe)iframe.src='https://drive.google.com/file/d/'+fileId+'/preview';
+  document.querySelectorAll('[id^="vbtn"]').forEach(function(a){a.style.color='rgba(255,255,255,0.5)';a.style.borderColor='rgba(255,255,255,0.15)';});
+  btn.style.color='white';btn.style.borderColor='rgba(201,168,76,0.6)';
+}
+
+function activateMatterport(){
+  var overlay=document.getElementById('matterport-overlay');
+  var iframe=document.getElementById('matterport-iframe');
+  if(overlay)overlay.style.display='none';
+  if(iframe)iframe.src=iframe.dataset.src;
+}
+
 const T={
 pt:{
-'h-price-sub':'Venda Direta · Sem Comissão %','h-eyebrow':'Canidelo · Vila Nova de Gaia · 2ª Linha do Mar',
-'h-title':'Viver entre<br>o <em>Atlântico</em><br>e o Porto.','h-sub':'T3+1 totalmente renovado com 155 m² úteis, vista mar, equipamentos premium e mobiliário incluído — na 2ª linha da Praia de Lavadores.',
-'hs-util':'Área Útil','hs-tipo':'Tipologia','hs-wc':'Casas de Banho','hs-view':'Oceano Atlântico','h-scroll':'Descobrir',
-'tag1':'Renovação Total','tag2':'Daikin A+++ Wi-Fi','tag3':'Vidros Triplos','tag4':'Siemens + Samsung','tag5':'Varanda Vista Mar','tag6':'Chuveiro Duplo + Banheira','tag7':'Mobiliário Incluído','tag8':'Churrasqueira Weber','tag9':'Garagem + Arrecadação',
-'video-label':'Vista do <span>Apartamento</span>',
-'m3d-label':'Visita Virtual 3D','m3d-title':'Explore cada divisão<br>sem sair de <em>casa.</em>','m3d-text':'Navegue por todos os espaços em 360° com tecnologia Matterport — veja cada divisão, meça distâncias e sinta a real amplitude do imóvel antes de agendar visita.',
-'feat-label':'O Apartamento','feat-title':'Renovação total.<br>Zero concessões na <em>qualidade.</em>','feat-desc':'Intervenção profunda em toda a estrutura: substituição de canalizações, quadro elétrico novo, teto rebaixado em gesso, revestimentos Revigres e caixilharia com vidros triplos.',
-'f1t':'Vidros Triplos','f1d':'Caixilharia de alta eficiência com vidros triplos em todas as janelas. Isolamento térmico e acústico superior — silêncio e temperatura estáveis.',
-'f2t':'Daikin A+++ com Wi-Fi','f2d':'Ar condicionado Daikin A+++ em todos os quartos, controláveis remotamente via Wi-Fi. Eficiência energética máxima.',
-'f3t':'Lareira a Pellet Wi-Fi','f3d':'Lareira a pellet na sala com controlo por Wi-Fi. Aquecimento eficiente e ambiente sofisticado nas noites de inverno.',
-'f4t':'Bomba de Calor AQS','f4d':'Bomba de calor para aquecimento de águas sanitárias em todas as torneiras e chuveiros. Elevada eficiência energética.',
-'f5t':'Suíte com Chuveiro Duplo','f5d':'Suite principal com chuveiro duplo e banheira — espaço de relaxamento que rivaliza com os melhores hotéis. Roupeiros embutidos em todos os quartos.',
-'f6t':'Varanda Angular · Vista Mar','f6d':'Varanda de canto com vista directa para o Atlântico e conjunto de sofás. Preparada para área gourmet com projecto já elaborado.',
-'f7t':'TVs 65" e 75" Incluídas','f7d':'TV de 75" na sala e 65" em cada quarto. Mobiliário El Corte Inglés e Áreas Infinitas, incluído no preço.',
-'f8t':'Open Space Siemens','f8d':'Cozinha Siemens: placa de indução, forno e micro-ondas embutidos, máquina de lavar louça e frigorífico Samsung americano com dispensador de gelo.',
+'h-eyebrow':'Canidelo · Vila Nova de Gaia · 2ª Linha do Mar',
+'h-title':'Viver entre<br>o <em>Atlântico</em><br>e o Douro.',
+'h-sub':'T3+1 totalmente remodelado com 155 m², vista mar, equipamentos premium — na 2ª linha da Praia de Lavadores.',
+'hs-util':'Área Total','hs-tipo':'Tipologia','hs-wc':'Casas de Banho','hs-view':'Venda Directa',
+'tag1':'Remodelação Integral','tag2':'Daikin A+++ Wi-Fi','tag3':'Vidros Triplos','tag4':'Siemens + Samsung',
+'tag5':'Varanda Vista Mar','tag6':'Suite com Banheira','tag7':'Recuperador a Pellets','tag8':'Churrasqueira Weber','tag9':'Garagem + Arrecadação',
+'spec-label':'Ficha Técnica','spec-title':'Todos os <em>detalhes</em><br>do imóvel.',
+'sk1':'Tipologia','sk2':'Área Total','sk3':'Casas de Banho','sk4':'Andar','sk5':'Estacionamento','sk6':'Arrecadação',
+'sk7':'Ano de Construção','sk8':'Estado','sk9':'Vista','sk10':'Climatização Quartos','sk11':'Aquecimento Sala',
+'sk12':'Caixilharia','sk13':'Pavimento','sk14':'Condomínio','sk15':'Mobiliário','sk16':'Preço',
+'feat-label':'O Apartamento','feat-title':'Remodelação integral.<br>Zero concessões na <em>qualidade.</em>',
+'feat-desc':'Intervenção profunda em toda a estrutura: substituição de canalizações, quadro eléctrico novo, tecto rebaixado em gesso, revestimentos Revigres e caixilharia com vidros triplos em todas as janelas.',
+'f1t':'Vidros Triplos','f1d':'Caixilharia de alta eficiência com vidros triplos em todas as janelas. Isolamento térmico e acústico superior — silêncio e temperatura estáveis durante todo o ano.',
+'f2t':'Daikin A+++ com Wi-Fi','f2d':'Ar condicionado Daikin A+++ em todos os quartos, controlável remotamente via Wi-Fi. Eficiência energética máxima com a marca líder mundial em climatização.',
+'f3t':'Recuperador a Pellets','f3d':'Recuperador de calor a pellets na sala — aquecimento eficiente e atmosfera acolhedora nas noites de inverno. O fogo que faz companhia, sem esforço.',
+'f4t':'Bomba de Calor AQS','f4d':'Bomba de calor para aquecimento de águas sanitárias em todas as torneiras e chuveiros. Elevada eficiência energética e conforto permanente.',
+'f5t':'Suite com Chuveiro Duplo','f5d':'Suite principal com chuveiro duplo e banheira — um espaço de relaxamento privado que rivaliza com os melhores hotéis. Roupeiros embutidos em todos os quartos.',
+'f6t':'Varanda Angular · Vista Mar','f6d':'Varanda de canto com vista para o Atlântico, zona de refeições exterior e churrasqueira Weber. Varanda envidraçada adicional orientada para o mar — utilizável todo o ano.',
+'f7t':'Cozinha Open Space Siemens','f7d':'Cozinha integrada com a sala em conceito open space. Placa de indução, forno e micro-ondas Siemens encastrados, máquina de lavar louça e frigorífico americano Samsung.',
+'f8t':'Lavandaria Independente','f8d':'Lavandaria envidraçada separada com máquina de lavar e secar LG 11 kg — espaço funcional que as famílias valorizam e que a nova construção raramente oferece.',
 'brands-label':'Marcas instaladas no imóvel',
 'br1':'Climatização A+++','br2':'Cozinha Completa','br3':'Frigorífico Americano','br4':'Lava e Seca 11kg','br5':'Churrasqueira a Gás','br6':'Porcelanato Premium',
 'equip-label':'Equipamentos','equip-title':'Cada equipamento,<br>escolhido pela <em>excelência.</em>',
-'eq1t':'Ar Condicionado','eq1d':'Unidades Daikin A+++ em todos os quartos. Controlo remoto via Wi-Fi, eficiência energética máxima.',
-'eq2t':'Cozinha Completa','eq2d':'Placa de indução, forno e micro-ondas embutidos, máquina de lavar louça — tudo Siemens de última geração.',
-'eq3t':'Frigorífico Americano','eq3d':'Samsung com dispensador de gelo e água filtrada incorporados. Capacidade extra-larga.',
-'eq4t':'Lava e Seca 11 kg','eq4d':'LG com as mais recentes tecnologias de lavagem. Incluída no imóvel.',
-'eq5t':'Churrasqueira a Gás','eq5d':'Weber — marca líder mundial — instalada na varanda com conjunto de sofás para momentos de lazer ao ar livre.',
-'eq6t':'Mobiliário de Design','eq6d':'Imóvel entregue mobilado com El Corte Inglés e Áreas Infinitas. Armários planeados, TV 75" sala + 65" quartos — incluídos.',
+'eq1t':'Ar Condicionado','eq1d':'Unidades instaladas em todos os quartos. Controlo remoto via Wi-Fi, eficiência energética máxima da classe A+++.',
+'eq2t':'Cozinha Completa','eq2d':'Placa de indução, forno e micro-ondas encastrados, máquina de lavar louça — tudo Siemens de última geração.',
+'eq3t':'Frigorífico Americano','eq3d':'Com dispensador de gelo e água filtrada incorporados. Capacidade extra-larga para famílias.',
+'eq4t':'Lava e Seca 11 kg','eq4d':'Máquina de lavar e secar roupa de 11 kg em lavandaria independente envidraçada.',
+'eq5t':'Churrasqueira a Gás','eq5d':'Weber instalada na varanda exterior. Marca líder mundial em grelhadores — para os fins de semana com vista mar.',
+'eq6t':'Mobiliário','eq6d':'O imóvel dispõe de mobiliário de qualidade das marcas El Corte Inglés e Áreas Infinitas. Disponível mediante acordo separado.',
 'loc-tag':'Canidelo, Vila Nova de Gaia','loc-quote':'Na 2ª linha da Praia de Lavadores — onde o Douro encontra o Atlântico e a ciclovia parte em direcção a Espinho.',
 'd-porto':'Centro do Porto','d-praia':'Da Praia','d-bike':'Ciclovia Costeira',
 'loc-label':'Localização','loc-title':'O melhor de dois<br>mundos: mar e <em>cidade.</em>',
-'loc-text1':'À esquerda estende-se uma ciclovia costeira até Espinho — ideal para desporto e lazer. À direita, a Restinga de Cabedelo conecta à Marina da Afurada no Rio Douro, com vistas espectaculares.',
-'loc-text2':'A apenas 8 minutos do Porto e com acesso directo ao aeroporto, Canidelo combina tranquilidade costeira com toda a dinâmica urbana da segunda maior área metropolitana de Portugal.',
+'loc-text1':'À esquerda do apartamento estende-se uma ciclovia costeira até Espinho — ideal para desporto e lazer. À direita, a pitoresca Restinga de Cabedelo conecta à Marina da Afurada no Rio Douro.',
+'loc-text2':'A apenas 8 minutos do Porto e com acesso directo ao aeroporto Francisco Sá Carneiro, Canidelo combina a tranquilidade costeira com toda a dinâmica urbana da segunda maior área metropolitana de Portugal.',
 'area-label':'Envolvente','area-title':'Tudo o que precisa,<br>a <em>minutos</em> de distância.',
-'ap1t':'Ciclovia até Espinho','ap1d':'Extensa ciclovia costeira à porta de casa que percorre toda a orla marítima de Gaia até Espinho — ideal para ciclismo, jogging e passeios.',
+'ap1t':'Ciclovia até Espinho','ap1d':'Extensa ciclovia costeira à porta de casa — ideal para ciclismo, jogging e passeios ao ar livre.',
 'ap2t':'Restinga de Cabedelo e Marina da Afurada','ap2d':'A pitoresca restinga conecta à Marina da Afurada no Rio Douro — vistas espectaculares e cultura piscatória autêntica.',
-'ap3t':'Praia de Lavadores (2ª linha)','ap3d':'Praia atlântica de bandeira azul a poucos metros. Surf, natação e caminhadas com vista oceano.',
+'ap3t':'Praia de Lavadores (2ª linha)','ap3d':'Praia atlântica de bandeira azul, a poucos metros. Surf, natação e caminhadas com vista para o oceano.',
 'ap4t':'Colégios de Referência','ap4d':'Colégio Novo de Gaia e Agrupamento D. Pedro I nas imediações. Ensino público e privado de qualidade.',
-'ap5t':'Comércio e Serviços','ap5d':'Continente e Auchan a menos de 1,5 km. Restaurantes, farmácias, clínicas e serviços bancários próximos.',
-'as1':'Habitantes em VN de Gaia','as2':'Preço Médio na Zona','as3':'Valorização Anual 2024–25','as4':'Maior Cidade de Portugal',
-'inv-label':'Potencial de Valorização','inv-title':'Um projecto de 700M€<br>nasce mesmo <em>ao lado.</em>','inv-text':'Nos 21 hectares do antigo parque de campismo da Madalena, a 3 minutos deste apartamento, está em disputa um dos maiores projectos de investimento do Norte de Portugal. Independentemente do desfecho, o terreno terá uma intervenção de grande escala com impacto directo na valorização imobiliária da zona.',
-'ic1t':'Gaia Infinity Hub','ic1d':'Projecto de investimento para criar um mega polo tecnológico nos 21 ha do antigo parque Orbitur da Madalena — desenhado para atrair gigantes tecnológicos internacionais para o Norte.',
-'ic2t':'Dimensão do Projecto','ic2d':'A Câmara de Gaia anulou o contrato por incumprimento, mas os investidores garantem recorrer. O terreno terá sempre uma intervenção de grande escala — tech hub ou ecoparque de referência.',
-'hub-text':'<strong>Localização estratégica:</strong> Este apartamento situa-se a poucos minutos do terreno em disputa. Qualquer desenvolvimento de escala nessa localização implica necessariamente uma valorização significativa dos imóveis residenciais da área costeira de Canidelo.',
-'yt-label':'Conheça a área e a envolvente','yt1':'Praia de Lavadores e o edifício','yt2':'Envolvente de Canidelo','yt3':'Vila Nova de Gaia',
-'imi-label':'Vantagem Fiscal','imi-title':'A diferença que ninguém<br>lhe conta sobre o <em>IMI.</em>','imi-text':'Em Portugal, o IMI é calculado sobre o Valor Patrimonial Tributário do imóvel — e em edifícios mais antigos esse valor é substancialmente inferior, traduzindo-se numa poupança fiscal significativa todos os anos.',
-'imic1t':'Menos IMI Anual','imic1d':'Comparado com nova construção equivalente, este imóvel de 1988 renovado paga significativamente menos imposto — sem penalização na qualidade de vida.','imic2t':'Poupança Acumulada','imic2d':'A diferença de IMI ao longo de uma década equivale ao custo de um automóvel médio. Dinheiro que fica no seu bolso automaticamente.','imic3t':'Ano de Construção','imic3d':'Edifício sólido e maduro, 100% renovado por dentro. O VPT mantém-se muito inferior ao de imóveis recentes — benefício fiscal perpétuo.','imic4t':'100% Remodelado','imic4d':'Canalizações, elétrica, quadro de luz, tecto, revestimentos e caixilharia — tudo novo. Vantagem fiscal de imóvel antigo com conforto de imóvel novo.',
-'imi-quote':'"Um imóvel antigo renovado pode poupar ao proprietário o custo de um carro durante 10 anos, apenas em IMI — comparado com nova construção de valor semelhante."',
-'spec-label':'Ficha Técnica','spec-title':'Todos os <em>detalhes</em><br>do imóvel.',
-'sk1':'Tipologia','sk2':'Área Bruta','sk3':'Área Útil','sk4':'Casas de Banho','sk5':'Andar','sk6':'Estacionamento','sk7':'Ano de Construção','sk8':'Estado','sk9':'Orientação Solar','sk10':'Vista','sk11':'Climatização','sk12':'Condomínio','sk13':'Pavimento','sk14':'Caixilharia','sk15':'Mobília','sk16':'Preço',
-'sv8':'Totalmente Renovado','sv10':'Oceano Atlântico','sv13':'Vidros Triplos','sv15':'Incluída (negociável)',
-'cta-label':'Agendar Visita','cta-title':'Pronto a <em>viver</em><br>à beira-mar?','cta-text':'Venda direta pelo proprietário — sem intermediários, sem comissões de agência. Contacte directamente para agendar visita ou obter mais informações.',
-'cta-btn1':'Ver Anúncio Original','cta-btn2':'Visita Virtual 3D','cta-ref':'Canidelo · Vila Nova de Gaia · Venda Directa',
-'f-note':'© 2025 · T3+1 · Rua Jorge Dias, Canidelo, Vila Nova de Gaia','see-all-txt':'Ver todas as 26 fotos'
+'ap5t':'Comércio e Serviços','ap5d':'Continente e Auchan a menos de 1,5 km. Restaurantes, farmácias, clínicas e serviços bancários nas proximidades.',
+'as1':'Preço Médio em Lavadores/Canidelo','as2':'Este Apartamento — 26% abaixo da média','as3':'Valorização Anual 2024–25','as4':'Habitantes em VN de Gaia',
+'inv-label':'Envolvente em Transformação','inv-title':'24 hectares junto ao mar<br>estão a <em>mudar.</em>',
+'inv-text':'A 5 minutos deste apartamento, os 24 hectares do antigo parque de campismo da Madalena estão a ser transformados. Seja qual for o desfecho final, o impacto na zona costeira de Canidelo é o mesmo: mais qualidade de vida, mais visibilidade, mais valorização.',
+'ic1t':'Ecoparque do Atlântico — Realidade','ic1d':'A Câmara de Gaia transformou os 24 hectares num parque urbano público aberto desde agosto de 2025. Ciclovia, picnic, campo de jogos, educação ambiental e Centro de Juventude em desenvolvimento.',
+'ic2t':'Gaia Infinity Hub — Capítulo Aberto','ic2d':'O projecto original de 700M€ foi cancelado por incumprimento contratual. Os promotores garantem recurso. O terreno comprovou o potencial estratégico desta faixa costeira.',
+'hub-text':'<strong>O que é certo:</strong> O Ecoparque do Atlântico já existe e já valoriza a envolvente. Um parque urbano de 24 hectares junto ao mar, a 5 minutos deste apartamento, é um activo permanente.',
+'yt-label':'Conheça a área e a envolvente','yt1':'Praia de Lavadores e o edifício','yt2':'Canidelo e arredores','yt3':'Vila Nova de Gaia',
+'imi-label':'Vantagem Fiscal','imi-title':'Conforto de imóvel novo.<br>IMI de imóvel <em>antigo.</em>',
+'imi-text':'Em Portugal, o IMI é calculado sobre o Valor Patrimonial Tributário — não sobre o preço de mercado. Em edifícios mais antigos, o coeficiente de vetustez reduz significativamente esse valor. É uma vantagem fiscal automática, perpétua, que a nova construção nunca pode oferecer.',
+'imic1t':'Menos IMI Anual','imic1d':'Comparado com uma construção nova de valor equivalente, este apartamento paga cerca de 43% menos IMI por ano.',
+'imic2t':'Ano de Construção','imic2d':'Edifício sólido e maduro, 100% remodelado por dentro. O VPT mantém-se muito inferior ao de imóveis recentes.',
+'imic3t':'Taxa IMI em Vila Nova de Gaia','imic3d':'Vila Nova de Gaia aplica a taxa mínima de IMI permitida por lei — 0,30% sobre o VPT. Uma das mais baixas do país.',
+'imic4t':'Remodelado — sem penalização','imic4d':'A remodelação não aumenta o IMI. Canalizações, eléctrica, tecto, revestimentos e caixilharia novos — a vantagem mantém-se intacta.',
+'imi-quote':'"A mesma remodelação, o mesmo conforto, os mesmos equipamentos — e cerca de 43% menos imposto por ano do que pagaria num apartamento novo equivalente. Ano após ano, automaticamente."',
+'cta-label':'Agendar Visita','cta-title':'Pronto a <em>viver</em><br>à beira-mar?',
+'cta-text':'Venda directa pelo proprietário. Aberto a colaboração com mediadores imobiliários — comissão de 2,5% + IVA a cargo do vendedor, mediante acordo prévio.',
+'cta-btn1':'Visita Virtual 3D','cta-btn2':'Contactar Proprietário',
+'cta-ref':'Canidelo · Vila Nova de Gaia · Venda Directa pelo Proprietário',
+'f-note':'© 2026 · T3+1 · Rua Jorge Dias, Canidelo, Vila Nova de Gaia'
 },
 en:{
-'h-price-sub':'Direct Sale · No % Commission','h-eyebrow':'Canidelo · Vila Nova de Gaia · 2nd Line from the Sea',
-'h-title':'Living between<br>the <em>Atlantic</em><br>and Porto.','h-sub':'Fully renovated T3+1 with 155 m², sea views, premium appliances and furniture included — 2nd line from Lavadores Beach.',
-'hs-util':'Usable Area','hs-tipo':'Typology','hs-wc':'Bathrooms','hs-view':'Atlantic Ocean','h-scroll':'Discover',
-'tag1':'Full Renovation','tag2':'Daikin A+++ Wi-Fi','tag3':'Triple Glazing','tag4':'Siemens + Samsung','tag5':'Sea View Balcony','tag6':'Double Shower + Bath','tag7':'Furniture Included','tag8':'Weber BBQ','tag9':'Garage + Storage',
-'video-label':'Inside the <span>Apartment</span>',
-'m3d-label':'3D Virtual Tour','m3d-title':'Explore every room<br>from <em>anywhere.</em>','m3d-text':'Navigate all spaces in 360° with Matterport — see every room, measure distances and feel the real dimensions before scheduling an in-person visit.',
-'feat-label':'The Apartment','feat-title':'Total renovation.<br>Zero compromise on <em>quality.</em>','feat-desc':'Deep structural intervention: replacement of plumbing, new electrical panel, suspended gypsum ceiling, Revigres porcelain tiles and triple-glazed frames throughout.',
+'h-eyebrow':'Canidelo · Vila Nova de Gaia · 2nd Line from the Sea',
+'h-title':'Living between<br>the <em>Atlantic</em><br>and the Douro.',
+'h-sub':'Fully renovated T3+1 with 155 m², sea views, premium appliances — 2nd line from Lavadores Beach.',
+'hs-util':'Total Area','hs-tipo':'Typology','hs-wc':'Bathrooms','hs-view':'Direct Sale',
+'tag1':'Full Renovation','tag2':'Daikin A+++ Wi-Fi','tag3':'Triple Glazing','tag4':'Siemens + Samsung',
+'tag5':'Sea View Balcony','tag6':'Suite with Bathtub','tag7':'Pellet Fireplace','tag8':'Weber BBQ','tag9':'Garage + Storage',
+'spec-label':'Property Details','spec-title':'All the <em>details</em><br>of the property.',
+'sk1':'Typology','sk2':'Total Area','sk3':'Bathrooms','sk4':'Floor','sk5':'Parking','sk6':'Storage',
+'sk7':'Year Built','sk8':'Condition','sk9':'View','sk10':'Bedroom Climate','sk11':'Living Room Heating',
+'sk12':'Glazing','sk13':'Flooring','sk14':'Condo Fee','sk15':'Furniture','sk16':'Price',
+'feat-label':'The Apartment','feat-title':'Total renovation.<br>Zero compromise on <em>quality.</em>',
+'feat-desc':'Deep structural intervention: plumbing replacement, new electrical panel, suspended gypsum ceiling, Revigres porcelain tiles and triple-glazed frames throughout.',
 'f1t':'Triple Glazing','f1d':'High-efficiency frames with triple glazing on all windows. Superior thermal and acoustic insulation — stable silence and temperature year-round.',
-'f2t':'Daikin A+++ with Wi-Fi','f2d':'Daikin A+++ air conditioning in all bedrooms, remotely controlled via Wi-Fi app. Maximum energy efficiency from the world\'s leading HVAC brand.',
-'f3t':'Pellet Fireplace with Wi-Fi','f3d':'Pellet fireplace in the living room, also Wi-Fi controlled. Efficient heating and sophisticated atmosphere on winter evenings.',
-'f4t':'Heat Pump — Sanitary Water','f4d':'Heat pump for hot water throughout all taps and showers. High energy efficiency with permanent comfort.',
-'f5t':'Suite with Double Shower','f5d':'Master suite with double shower AND bathtub — a private relaxation space rivalling the finest hotels. Built-in wardrobes in all bedrooms.',
-'f6t':'Corner Balcony · Sea View','f6d':'Angular balcony with direct Atlantic views and sofa set included. Already has a project prepared for a gourmet outdoor area.',
-'f7t':'65" & 75" TVs Included','f7d':'75" TV in living room, 65" in each bedroom. High-quality furniture from El Corte Inglés and Áreas Infinitas, included in the price.',
-'f8t':'Siemens Open Space Kitchen','f8d':'Full Siemens kitchen: induction hob, built-in oven & microwave, dishwasher, and Samsung American fridge with ice & filtered water dispenser.',
+'f2t':'Daikin A+++ with Wi-Fi','f2d':'Daikin A+++ air conditioning in all bedrooms, remotely controlled via Wi-Fi. Maximum energy efficiency from the world\'s leading HVAC brand.',
+'f3t':'Pellet Fireplace','f3d':'Pellet heat recovery unit in the living room — efficient heating and a cosy atmosphere on winter evenings. Fire that keeps you company, effortlessly.',
+'f4t':'Heat Pump — Hot Water','f4d':'Heat pump for sanitary hot water at all taps and showers. High energy efficiency with permanent comfort.',
+'f5t':'Suite with Double Shower','f5d':'Master suite with double shower and bathtub — a private relaxation space rivalling the finest hotels. Built-in wardrobes in all bedrooms.',
+'f6t':'Corner Balcony · Sea View','f6d':'Angular balcony with Atlantic views, outdoor dining area and Weber BBQ. Additional glazed balcony facing the sea — usable year-round.',
+'f7t':'Siemens Open Space Kitchen','f7d':'Kitchen integrated with living room in open space concept. Siemens induction hob, built-in oven and microwave, dishwasher and Samsung American fridge.',
+'f8t':'Independent Laundry Room','f8d':'Separate glazed laundry room with LG 11kg washer-dryer — a practical space that families value and new construction rarely offers.',
 'brands-label':'Brands installed in the property',
 'br1':'A+++ Climatisation','br2':'Full Kitchen','br3':'American Fridge','br4':'Washer-Dryer 11kg','br5':'Gas BBQ','br6':'Premium Porcelain',
 'equip-label':'Appliances','equip-title':'Every appliance,<br>chosen for <em>excellence.</em>',
-'eq1t':'Air Conditioning','eq1d':'Daikin A+++ units in all bedrooms. Remote control via Wi-Fi app, maximum energy efficiency.',
-'eq2t':'Full Kitchen','eq2d':'Induction hob, built-in oven & microwave, dishwasher — all Siemens latest generation, installed and ready.',
-'eq3t':'American Fridge','eq3d':'Samsung with built-in ice and filtered water dispenser. Extra-large capacity for families.',
-'eq4t':'Washer-Dryer 11 kg','eq4d':'LG with latest washing technologies. Included in the property.',
-'eq5t':'Gas BBQ','eq5d':'Weber — world\'s leading brand — installed on the balcony with sofa set for outdoor leisure.',
-'eq6t':'Design Furniture','eq6d':'Property delivered furnished with El Corte Inglés and Áreas Infinitas pieces. Bespoke wardrobes, 75" TV living room + 65" bedrooms — included.',
+'eq1t':'Air Conditioning','eq1d':'Daikin A+++ units in all bedrooms. Remote control via Wi-Fi, maximum energy efficiency.',
+'eq2t':'Full Kitchen','eq2d':'Induction hob, built-in oven and microwave, dishwasher — all Siemens latest generation.',
+'eq3t':'American Fridge','eq3d':'With built-in ice and filtered water dispenser. Extra-large capacity for families.',
+'eq4t':'Washer-Dryer 11 kg','eq4d':'LG washer-dryer in separate glazed laundry room.',
+'eq5t':'Gas BBQ','eq5d':'Weber installed on the outdoor balcony — the world\'s leading BBQ brand for sea-view weekends.',
+'eq6t':'Furniture','eq6d':'Property features quality furniture from El Corte Inglés and Áreas Infinitas. Available by separate agreement.',
 'loc-tag':'Canidelo, Vila Nova de Gaia','loc-quote':'On the 2nd line of Lavadores Beach — where the Douro meets the Atlantic and the cycle path heads towards Espinho.',
 'd-porto':'Porto City Centre','d-praia':'From the Beach','d-bike':'Coastal Cycle Path',
 'loc-label':'Location','loc-title':'The best of both<br>worlds: sea and <em>city.</em>',
-'loc-text1':'To the left, an extensive coastal cycle path stretches to Espinho — ideal for cycling and outdoor activities. To the right, the Cabedelo sandspit connects to Afurada Marina on the Douro River, with spectacular views.',
+'loc-text1':'To the left stretches a coastal cycle path to Espinho — ideal for sport and leisure. To the right, the Cabedelo sandspit connects to Afurada Marina on the Douro River.',
 'loc-text2':'Just 8 minutes from Porto with direct access to Francisco Sá Carneiro Airport, Canidelo combines coastal tranquillity with the full urban dynamism of Portugal\'s second largest metropolitan area.',
 'area-label':'Surroundings','area-title':'Everything you need,<br><em>minutes</em> away.',
-'ap1t':'Cycle Path to Espinho','ap1d':'Extensive coastal cycle path at your doorstep running along Gaia\'s entire seafront to Espinho — ideal for cycling, jogging and walks.',
-'ap2t':'Cabedelo Sandspit & Afurada Marina','ap2d':'The picturesque sandspit connects to Afurada Marina on the Douro River — spectacular views and authentic fishing culture.',
+'ap1t':'Cycle Path to Espinho','ap1d':'Extensive coastal cycle path at your doorstep — ideal for cycling, jogging and walks.',
+'ap2t':'Cabedelo Sandspit & Afurada Marina','ap2d':'The picturesque sandspit connects to Afurada Marina on the Douro — spectacular views and authentic fishing culture.',
 'ap3t':'Lavadores Beach (2nd line)','ap3d':'Blue-flag Atlantic beach metres away. Surfing, swimming and walks with ocean views.',
 'ap4t':'Reference Schools','ap4d':'Colégio Novo de Gaia and D. Pedro I School Group nearby. Quality public and private education.',
 'ap5t':'Commerce & Services','ap5d':'Continente and Auchan within 1.5 km. Restaurants, pharmacies, clinics and banking nearby.',
-'as1':'Inhabitants in VN de Gaia','as2':'Average Price in Area','as3':'Annual Appreciation 2024–25','as4':'Largest City in Portugal',
-'inv-label':'Investment Potential','inv-title':'A €700M project<br>is born right <em>next door.</em>','inv-text':'On the 21 hectares of the former Madalena campsite, 3 minutes from this apartment, one of the largest investment projects in Northern Portugal is under dispute. Regardless of the outcome, the site will see large-scale development — with direct impact on property values.',
-'ic1t':'Gaia Infinity Hub','ic1d':'Brazilian-backed investment project to create a mega tech hub on 21 ha of the former Orbitur campsite — designed to attract international tech giants to Northern Portugal.',
-'ic2t':'Project Scale','ic2d':'Gaia Municipality cancelled the contract for non-compliance, but investors guarantee they will appeal. The site will always see major development — tech hub or landmark eco-park.',
-'hub-text':'<strong>Strategic location:</strong> This apartment is minutes from the disputed site. Any large-scale development there — technological or environmental — necessarily implies significant appreciation of coastal residential properties in Canidelo.',
-'yt-label':'Discover the area and surroundings','yt1':'Lavadores Beach & the building','yt2':'Canidelo surroundings','yt3':'Vila Nova de Gaia',
-'imi-label':'Tax Advantage','imi-title':'The difference nobody<br>tells you about <em>IMI.</em>','imi-text':'In Portugal, the Municipal Property Tax (IMI) is calculated on the Tax Asset Value — and in older buildings this is substantially lower than new construction, translating into significant annual savings.',
-'imic1t':'Less Annual IMI','imic1d':'Compared to an equivalent new build, this 1988 renovated property pays significantly less tax per year — without any compromise on quality.','imic2t':'Accumulated Savings','imic2d':'The IMI difference over a decade equals the cost of an average car. Money that stays in your pocket automatically, year after year.','imic3t':'Year Built','imic3d':'Solid and mature building, 100% renovated inside. Tax Asset Value remains much lower than recent properties — a permanent tax benefit.','imic4t':'100% Renovated','imic4d':'Plumbing, electrics, electrical panel, ceiling, tiles and frames — all new. Tax advantage of an old property with comfort of a new one.',
-'imi-quote':'"A renovated older property can save the owner the cost of a car over 10 years, in IMI alone — compared with new construction of similar value."',
-'spec-label':'Property Details','spec-title':'All the <em>details</em><br>of the property.',
-'sk1':'Typology','sk2':'Gross Area','sk3':'Usable Area','sk4':'Bathrooms','sk5':'Floor','sk6':'Parking','sk7':'Year Built','sk8':'Condition','sk9':'Solar Orientation','sk10':'View','sk11':'Climate Control','sk12':'Condo Fee','sk13':'Flooring','sk14':'Glazing','sk15':'Furniture','sk16':'Price',
-'sv8':'Fully Renovated','sv10':'Atlantic Ocean','sv13':'Triple Glazing','sv15':'Included (negotiable)',
-'cta-label':'Schedule a Visit','cta-title':'Ready to <em>live</em><br>by the sea?','cta-text':'Direct sale by the owner — no intermediaries, no agency commissions. Contact directly to schedule a visit or request further information.',
-'cta-btn1':'View Original Listing','cta-btn2':'3D Virtual Tour','cta-ref':'Canidelo · Vila Nova de Gaia · Direct Sale',
-'f-note':'© 2025 · T3+1 · Rua Jorge Dias, Canidelo, Vila Nova de Gaia','see-all-txt':'View all 26 photos'
+'as1':'Average Price in Lavadores/Canidelo','as2':'This Apartment — 26% below average','as3':'Annual Appreciation 2024–25','as4':'Inhabitants in VN de Gaia',
+'inv-label':'Surrounding Transformation','inv-title':'24 hectares by the sea<br>are <em>changing.</em>',
+'inv-text':'5 minutes from this apartment, 24 hectares of the former Madalena campsite are being transformed. Whatever the final outcome, the impact on Canidelo\'s coastal zone is the same: better quality of life, more visibility, more appreciation.',
+'ic1t':'Ecoparque do Atlântico — Reality','ic1d':'Gaia Municipality transformed the 24 hectares into a public urban park open since August 2025. Cycle paths, picnic areas, sports fields and environmental education.',
+'ic2t':'Gaia Infinity Hub — Open Chapter','ic2d':'The original €700M project was cancelled for contractual non-compliance. Investors guarantee an appeal. The land proved the strategic potential of this coastal stretch.',
+'hub-text':'<strong>What is certain:</strong> The Ecoparque do Atlântico already exists and already enhances the surroundings. A 24-hectare urban park by the sea, 5 minutes from this apartment, is a permanent asset.',
+'yt-label':'Discover the area and surroundings','yt1':'Lavadores Beach and the building','yt2':'Canidelo surroundings','yt3':'Vila Nova de Gaia',
+'imi-label':'Tax Advantage','imi-title':'New property comfort.<br><em>Old property</em> IMI.',
+'imi-text':'In Portugal, IMI is calculated on the Tax Asset Value — not the market price. In older buildings, the age coefficient significantly reduces this value. It is an automatic, perpetual tax advantage that new construction can never offer.',
+'imic1t':'Less Annual IMI','imic1d':'Compared to an equivalent new build in Canidelo, this apartment pays approximately 43% less IMI per year.',
+'imic2t':'Year Built','imic2d':'Solid and mature building, 100% renovated inside. The Tax Asset Value remains much lower than recent properties.',
+'imic3t':'IMI Rate in Vila Nova de Gaia','imic3d':'Vila Nova de Gaia applies the minimum IMI rate allowed by law — 0.30% on Tax Asset Value. One of the lowest in the country.',
+'imic4t':'Renovated — no penalty','imic4d':'Renovation does not increase IMI. New plumbing, electrics, ceiling, tiles and frames — the advantage remains intact.',
+'imi-quote':'"The same renovation, the same comfort, the same appliances — and approximately 43% less tax per year than you would pay in an equivalent new apartment. Year after year, automatically."',
+'cta-label':'Schedule a Visit','cta-title':'Ready to <em>live</em><br>by the sea?',
+'cta-text':'Direct sale by owner. Open to collaboration with estate agents — 2.5% + VAT commission paid by seller, by prior agreement.',
+'cta-btn1':'3D Virtual Tour','cta-btn2':'Contact Owner',
+'cta-ref':'Canidelo · Vila Nova de Gaia · Direct Sale by Owner',
+'f-note':'© 2026 · T3+1 · Rua Jorge Dias, Canidelo, Vila Nova de Gaia'
 },
 fr:{
-'h-price-sub':'Vente Directe · Sans Commission %','h-eyebrow':'Canidelo · Vila Nova de Gaia · 2ème Ligne de Mer',
-'h-title':'Vivre entre<br>l\'<em>Atlantique</em><br>et Porto.','h-sub':'T3+1 entièrement rénové de 155 m², vue mer, équipements premium et mobilier inclus — 2ème ligne de la Plage de Lavadores.',
-'hs-util':'Surface Utile','hs-tipo':'Typologie','hs-wc':'Salles de Bain','hs-view':'Océan Atlantique','h-scroll':'Découvrir',
-'tag1':'Rénovation Totale','tag2':'Daikin A+++ Wi-Fi','tag3':'Triple Vitrage','tag4':'Siemens + Samsung','tag5':'Balcon Vue Mer','tag6':'Douche Double + Baignoire','tag7':'Mobilier Inclus','tag8':'Barbecue Weber','tag9':'Garage + Débarras',
-'video-label':'Visite de l\'<span>Appartement</span>',
-'m3d-label':'Visite Virtuelle 3D','m3d-title':'Explorez chaque pièce<br>depuis chez <em>vous.</em>','m3d-text':'Naviguez dans tous les espaces en 360° avec Matterport — visualisez chaque pièce et ressentez les vraies dimensions avant de planifier une visite.',
-'feat-label':"L'Appartement",'feat-title':'Rénovation totale.<br>Zéro compromis sur la <em>qualité.</em>','feat-desc':'Intervention profonde sur toute la structure : remplacement de la plomberie, nouveau tableau électrique, faux plafond en plâtre, revêtements Revigres et menuiseries triple vitrage.',
+'h-eyebrow':'Canidelo · Vila Nova de Gaia · 2ème Ligne de Mer',
+'h-title':'Vivre entre<br>l\'<em>Atlantique</em><br>et le Douro.',
+'h-sub':'T3+1 entièrement rénové de 155 m², vue mer, équipements premium — 2ème ligne de la Plage de Lavadores.',
+'hs-util':'Surface Totale','hs-tipo':'Typologie','hs-wc':'Salles de Bain','hs-view':'Vente Directe',
+'tag1':'Rénovation Totale','tag2':'Daikin A+++ Wi-Fi','tag3':'Triple Vitrage','tag4':'Siemens + Samsung',
+'tag5':'Balcon Vue Mer','tag6':'Suite avec Baignoire','tag7':'Cheminée à Pellets','tag8':'Barbecue Weber','tag9':'Garage + Débarras',
+'spec-label':'Fiche Technique','spec-title':'Tous les <em>détails</em><br>du bien.',
+'sk1':'Typologie','sk2':'Surface Totale','sk3':'Salles de Bain','sk4':'Étage','sk5':'Parking','sk6':'Débarras',
+'sk7':'Année de Construction','sk8':'État','sk9':'Vue','sk10':'Climatisation Chambres','sk11':'Chauffage Salon',
+'sk12':'Vitrage','sk13':'Revêtement Sol','sk14':'Charges','sk15':'Mobilier','sk16':'Prix',
+'feat-label':'L\'Appartement','feat-title':'Rénovation totale.<br>Zéro compromis sur la <em>qualité.</em>',
+'feat-desc':'Intervention profonde : remplacement de la plomberie, nouveau tableau électrique, faux plafond en plâtre, revêtements Revigres et menuiseries triple vitrage sur toutes les fenêtres.',
 'f1t':'Triple Vitrage','f1d':'Menuiseries haute efficacité avec triple vitrage sur toutes les fenêtres. Isolation thermique et acoustique supérieure — silence et température stables toute l\'année.',
 'f2t':'Daikin A+++ avec Wi-Fi','f2d':'Climatisation Daikin A+++ dans toutes les chambres, contrôlable à distance via Wi-Fi. Efficacité énergétique maximale.',
-'f3t':'Cheminée à Pellet Wi-Fi','f3d':'Cheminée à pellet dans le salon, aussi pilotée par Wi-Fi. Chauffage efficace et ambiance sophistiquée les soirs d\'hiver.',
+'f3t':'Cheminée à Pellets','f3d':'Récupérateur de chaleur à pellets dans le salon — chauffage efficace et atmosphère chaleureuse les soirs d\'hiver.',
 'f4t':'Pompe à Chaleur ECS','f4d':'Pompe à chaleur pour l\'eau sanitaire de tous les robinets et douches. Haute efficacité énergétique.',
-'f5t':'Suite avec Douche Double','f5d':'Suite principale avec douche double ET baignoire — un espace de détente rivalisant avec les meilleurs hôtels. Dressings encastrés dans toutes les chambres.',
-'f6t':'Balcon d\'Angle · Vue Mer','f6d':'Balcon angulaire avec vue directe sur l\'Atlantique et salon de jardin inclus. Projet gourmet déjà élaboré.',
-'f7t':'TV 65" et 75" Incluses','f7d':'TV 75" au salon et 65" dans chaque chambre. Mobilier El Corte Inglés et Áreas Infinitas, inclus dans le prix.',
-'f8t':'Open Space Siemens','f8d':'Cuisine Siemens complète : plaque à induction, four et micro-ondes encastrés, lave-vaisselle et réfrigérateur américain Samsung avec distributeur de glaçons.',
+'f5t':'Suite avec Douche Double','f5d':'Suite principale avec douche double et baignoire — espace de détente rivalisant avec les meilleurs hôtels. Dressings encastrés dans toutes les chambres.',
+'f6t':'Balcon d\'Angle · Vue Mer','f6d':'Balcon angulaire avec vue sur l\'Atlantique, espace repas extérieur et barbecue Weber. Balcon vitré orienté vers la mer — utilisable toute l\'année.',
+'f7t':'Cuisine Open Space Siemens','f7d':'Cuisine intégrée au salon en concept open space. Plaque induction, four et micro-ondes Siemens encastrés, lave-vaisselle et réfrigérateur américain Samsung.',
+'f8t':'Buanderie Indépendante','f8d':'Buanderie vitrée séparée avec lave-séchant LG 11 kg — espace fonctionnel que les familles apprécient.',
 'brands-label':'Marques installées dans la propriété',
 'br1':'Climatisation A+++','br2':'Cuisine Complète','br3':'Réfrigérateur Américain','br4':'Lave-Séchant 11kg','br5':'Barbecue à Gaz','br6':'Grès Cérame Premium',
 'equip-label':'Équipements','equip-title':'Chaque équipement,<br>choisi pour l\'<em>excellence.</em>',
 'eq1t':'Climatisation','eq1d':'Unités Daikin A+++ dans toutes les chambres. Télécommande via Wi-Fi, efficacité maximale.',
 'eq2t':'Cuisine Complète','eq2d':'Plaque induction, four et micro-ondes encastrés, lave-vaisselle — tout Siemens dernière génération.',
-'eq3t':'Réfrigérateur Américain','eq3d':'Samsung avec distributeur de glaçons et eau filtrée intégrés. Grande capacité pour les familles.',
-'eq4t':'Lave-Séchant 11 kg','eq4d':'LG avec les dernières technologies de lavage. Inclus dans la propriété.',
-'eq5t':'Barbecue à Gaz','eq5d':'Weber — marque mondiale leader — installé sur le balcon avec salon de jardin pour les moments de détente en plein air.',
-'eq6t':'Mobilier de Design','eq6d':'Bien livré meublé avec El Corte Inglés et Áreas Infinitas. Dressings sur mesure, TV 75" salon + 65" chambres — inclus.',
+'eq3t':'Réfrigérateur Américain','eq3d':'Avec distributeur de glaçons et eau filtrée intégrés. Grande capacité pour les familles.',
+'eq4t':'Lave-Séchant 11 kg','eq4d':'LG dans une buanderie vitrée indépendante.',
+'eq5t':'Barbecue à Gaz','eq5d':'Weber installé sur le balcon extérieur — la marque leader mondiale pour les week-ends avec vue mer.',
+'eq6t':'Mobilier','eq6d':'La propriété dispose de mobilier de qualité des marques El Corte Inglés et Áreas Infinitas. Disponible par accord séparé.',
 'loc-tag':'Canidelo, Vila Nova de Gaia','loc-quote':'En 2ème ligne de la Plage de Lavadores — où le Douro rencontre l\'Atlantique et la piste cyclable part vers Espinho.',
 'd-porto':'Centre de Porto','d-praia':'De la Plage','d-bike':'Piste Cyclable Côtière',
 'loc-label':'Localisation','loc-title':'Le meilleur des deux<br>mondes : mer et <em>ville.</em>',
-'loc-text1':'À gauche, une longue piste cyclable côtière jusqu\'à Espinho — idéale pour le sport et les loisirs. À droite, la flèche de Cabedelo rejoint la Marina d\'Afurada sur le Douro, avec des vues spectaculaires.',
+'loc-text1':'À gauche s\'étend une longue piste cyclable jusqu\'à Espinho — idéale pour le sport et les loisirs. À droite, la flèche de Cabedelo rejoint la Marina d\'Afurada sur le Douro.',
 'loc-text2':'À seulement 8 minutes de Porto avec accès direct à l\'aéroport, Canidelo allie tranquillité côtière et dynamisme urbain de la deuxième plus grande aire métropolitaine du Portugal.',
 'area-label':'Environs','area-title':'Tout ce dont vous avez besoin,<br>à <em>quelques minutes.</em>',
-'ap1t':'Piste Cyclable jusqu\'à Espinho','ap1d':'Longue piste cyclable côtière à votre porte le long du front de mer de Gaia jusqu\'à Espinho — vélo, jogging, promenades.',
+'ap1t':'Piste Cyclable jusqu\'à Espinho','ap1d':'Longue piste cyclable côtière à votre porte — vélo, jogging et promenades.',
 'ap2t':'Flèche de Cabedelo et Marina d\'Afurada','ap2d':'La pittoresque flèche rejoint la Marina d\'Afurada sur le Douro — vues spectaculaires et culture de pêche authentique.',
 'ap3t':'Plage de Lavadores (2ème ligne)','ap3d':'Plage pavillon bleu à quelques mètres. Surf, natation et promenades avec vue océan.',
 'ap4t':'Écoles de Référence','ap4d':'Colégio Novo de Gaia et groupement D. Pedro I à proximité. Enseignement public et privé de qualité.',
-'ap5t':'Commerce & Services','ap5d':'Continente et Auchan à moins de 1,5 km. Restaurants, pharmacies, cliniques et banques à proximité.',
-'as1':'Habitants à VN de Gaia','as2':'Prix Moyen dans la Zone','as3':'Valorisation Annuelle 2024–25','as4':'Plus Grande Ville du Portugal',
-'inv-label':'Potentiel d\'Investissement','inv-title':'Un projet de 700M€<br>naît juste à <em>côté.</em>','inv-text':'Sur les 21 hectares de l\'ancien camping de la Madalena, à 3 minutes de cet appartement, l\'un des plus grands projets d\'investissement du Nord du Portugal est en litige. Quel que soit le résultat, le terrain connaîtra un développement à grande échelle avec un impact direct sur la valorisation immobilière.',
-'ic1t':'Gaia Infinity Hub','ic1d':'Projet d\'investissement brésilien pour créer un méga pôle technologique sur 21 ha de l\'ancien camping Orbitur — conçu pour attirer des géants technologiques internationaux dans le Nord.',
-'ic2t':'Dimension du Projet','ic2d':'La Mairie de Gaia a annulé le contrat pour non-conformité, mais les investisseurs garantissent un recours. Le terrain verra toujours un développement majeur.',
-'hub-text':'<strong>Localisation stratégique :</strong> Cet appartement se trouve à quelques minutes du terrain en litige. Tout développement à grande échelle implique nécessairement une valorisation significative des biens résidentiels côtiers de Canidelo.',
+'ap5t':'Commerce et Services','ap5d':'Continente et Auchan à moins de 1,5 km. Restaurants, pharmacies, cliniques et banques à proximité.',
+'as1':'Prix Moyen à Lavadores/Canidelo','as2':'Cet Appartement — 26% sous la moyenne','as3':'Valorisation Annuelle 2024–25','as4':'Habitants à VN de Gaia',
+'inv-label':'Transformation de l\'Environnement','inv-title':'24 hectares au bord de la mer<br>sont en train de <em>changer.</em>',
+'inv-text':'À 5 minutes de cet appartement, les 24 hectares de l\'ancien camping de la Madalena sont en cours de transformation. Quel que soit le résultat final, l\'impact sur la zone côtière de Canidelo est le même : meilleure qualité de vie, plus de visibilité, plus de valorisation.',
+'ic1t':'Ecoparque do Atlântico — Réalité','ic1d':'La Mairie de Gaia a transformé les 24 hectares en parc urbain public ouvert depuis août 2025. Piste cyclable, pique-nique, terrains de sport et éducation environnementale.',
+'ic2t':'Gaia Infinity Hub — Chapitre Ouvert','ic2d':'Le projet original de 700M€ a été annulé pour non-conformité contractuelle. Les investisseurs garantissent un recours. Le terrain a prouvé le potentiel stratégique de cette côte.',
+'hub-text':'<strong>Ce qui est certain :</strong> L\'Ecoparque do Atlântico existe déjà et valorise déjà les environs. Un parc urbain de 24 hectares au bord de la mer, à 5 minutes de cet appartement, est un actif permanent.',
 'yt-label':'Découvrez la zone et les environs','yt1':'Plage de Lavadores et l\'immeuble','yt2':'Environs de Canidelo','yt3':'Vila Nova de Gaia',
-'imi-label':'Avantage Fiscal','imi-title':'La différence que personne<br>ne vous dit sur l\'<em>IMI.</em>','imi-text':'Au Portugal, l\'IMI est calculé sur la valeur patrimoniale fiscale — et dans les immeubles anciens cette valeur est nettement inférieure aux constructions neuves, générant une économie fiscale annuelle significative.',
-'imic1t':'Moins d\'IMI Annuel','imic1d':'Par rapport à une construction neuve équivalente, cette propriété de 1988 rénovée paie beaucoup moins d\'impôt — sans compromis sur la qualité.','imic2t':'Économies Cumulées','imic2d':'La différence d\'IMI sur une décennie équivaut au coût d\'une voiture. De l\'argent qui reste dans votre poche automatiquement.','imic3t':'Année de Construction','imic3d':'Immeuble solide et mature, 100% rénové à l\'intérieur. Valeur patrimoniale très inférieure au neuf — avantage fiscal perpétuel.','imic4t':'100% Rénové','imic4d':'Plomberie, électricité, tableau, plafond, revêtements et menuiseries — tout est neuf. Avantage fiscal de l\'ancien avec confort du neuf.',
-'imi-quote':'"Une propriété ancienne rénovée peut faire économiser le coût d\'une voiture sur 10 ans, rien qu\'en IMI — par rapport à une construction neuve de valeur similaire."',
-'spec-label':'Fiche Technique','spec-title':'Tous les <em>détails</em><br>du bien.',
-'sk1':'Typologie','sk2':'Surface Brute','sk3':'Surface Utile','sk4':'Salles de Bain','sk5':'Étage','sk6':'Parking','sk7':'Année de Construction','sk8':'État','sk9':'Orientation Solaire','sk10':'Vue','sk11':'Climatisation','sk12':'Charges','sk13':'Revêtement Sol','sk14':'Vitrage','sk15':'Mobilier','sk16':'Prix',
-'sv8':'Entièrement Rénové','sv10':'Océan Atlantique','sv13':'Triple Vitrage','sv15':'Inclus (négociable)',
-'cta-label':'Planifier une Visite','cta-title':'Prêt à <em>vivre</em><br>au bord de la mer ?','cta-text':'Vente directe par le propriétaire — sans intermédiaires, sans commissions d\'agence. Contactez directement pour planifier une visite.',
-'cta-btn1':'Voir l\'Annonce Originale','cta-btn2':'Visite Virtuelle 3D','cta-ref':'Canidelo · Vila Nova de Gaia · Vente Directe',
-'f-note':'© 2025 · T3+1 · Rua Jorge Dias, Canidelo, Vila Nova de Gaia','see-all-txt':'Voir les 26 photos'
+'imi-label':'Avantage Fiscal','imi-title':'Confort de neuf.<br>IMI d\'<em>ancien.</em>',
+'imi-text':'Au Portugal, l\'IMI est calculé sur la valeur patrimoniale fiscale — pas sur le prix du marché. Dans les immeubles anciens, le coefficient de vétusté réduit significativement cette valeur. C\'est un avantage fiscal automatique et perpétuel que la construction neuve ne peut jamais offrir.',
+'imic1t':'Moins d\'IMI Annuel','imic1d':'Par rapport à une construction neuve équivalente à Canidelo, cet appartement paie environ 43% moins d\'IMI par an.',
+'imic2t':'Année de Construction','imic2d':'Immeuble solide et mature, 100% rénové à l\'intérieur. La valeur patrimoniale reste bien inférieure aux propriétés récentes.',
+'imic3t':'Taux IMI à Vila Nova de Gaia','imic3d':'Vila Nova de Gaia applique le taux minimum d\'IMI autorisé par la loi — 0,30% sur la valeur patrimoniale. L\'un des plus bas du pays.',
+'imic4t':'Rénové — sans pénalité','imic4d':'La rénovation n\'augmente pas l\'IMI. Plomberie, électricité, plafond, revêtements et menuiseries neufs — l\'avantage reste intact.',
+'imi-quote':'"La même rénovation, le même confort, les mêmes équipements — et environ 43% moins d\'impôt par an que vous paieriez dans un appartement neuf équivalent. Année après année, automatiquement."',
+'cta-label':'Planifier une Visite','cta-title':'Prêt à <em>vivre</em><br>au bord de la mer ?',
+'cta-text':'Vente directe par le propriétaire. Ouvert à la collaboration avec les agents immobiliers — commission de 2,5% + TVA à la charge du vendeur, sur accord préalable.',
+'cta-btn1':'Visite Virtuelle 3D','cta-btn2':'Contacter le Propriétaire',
+'cta-ref':'Canidelo · Vila Nova de Gaia · Vente Directe par le Propriétaire',
+'f-note':'© 2026 · T3+1 · Rua Jorge Dias, Canidelo, Vila Nova de Gaia'
+},
+es:{
+'h-eyebrow':'Canidelo · Vila Nova de Gaia · 2ª Línea del Mar',
+'h-title':'Vivir entre<br>el <em>Atlántico</em><br>y el Duero.',
+'h-sub':'T3+1 totalmente reformado con 155 m², vistas al mar, equipamiento premium — en 2ª línea de la Playa de Lavadores.',
+'hs-util':'Área Total','hs-tipo':'Tipología','hs-wc':'Cuartos de Baño','hs-view':'Venta Directa',
+'tag1':'Reforma Integral','tag2':'Daikin A+++ Wi-Fi','tag3':'Triple Acristalamiento','tag4':'Siemens + Samsung',
+'tag5':'Balcón Vista Mar','tag6':'Suite con Bañera','tag7':'Estufa de Pellets','tag8':'Barbacoa Weber','tag9':'Garaje + Trastero',
+'spec-label':'Ficha Técnica','spec-title':'Todos los <em>detalles</em><br>del inmueble.',
+'sk1':'Tipología','sk2':'Área Total','sk3':'Cuartos de Baño','sk4':'Planta','sk5':'Aparcamiento','sk6':'Trastero',
+'sk7':'Año de Construcción','sk8':'Estado','sk9':'Vistas','sk10':'Climatización Habitaciones','sk11':'Calefacción Salón',
+'sk12':'Acristalamiento','sk13':'Pavimento','sk14':'Comunidad','sk15':'Mobiliario','sk16':'Precio',
+'feat-label':'El Apartamento','feat-title':'Reforma integral.<br>Cero concesiones en la <em>calidad.</em>',
+'feat-desc':'Intervención profunda: sustitución de fontanería, nuevo cuadro eléctrico, techo suspendido en yeso, revestimientos Revigres y triple acristalamiento en todas las ventanas.',
+'f1t':'Triple Acristalamiento','f1d':'Carpintería de alta eficiencia con triple acristalamiento en todas las ventanas. Aislamiento térmico y acústico superior — silencio y temperatura estables todo el año.',
+'f2t':'Daikin A+++ con Wi-Fi','f2d':'Aire acondicionado Daikin A+++ en todas las habitaciones, controlable por Wi-Fi. Máxima eficiencia energética con la marca líder mundial.',
+'f3t':'Estufa de Pellets','f3d':'Recuperador de calor de pellets en el salón — calefacción eficiente y ambiente acogedor en las noches de invierno.',
+'f4t':'Bomba de Calor ACS','f4d':'Bomba de calor para agua caliente sanitaria en todos los grifos y duchas. Alta eficiencia energética.',
+'f5t':'Suite con Ducha Doble','f5d':'Suite principal con ducha doble y bañera — espacio de relax privado que rivaliza con los mejores hoteles. Armarios empotrados en todas las habitaciones.',
+'f6t':'Balcón Angular · Vistas al Mar','f6d':'Balcón de esquina con vistas al Atlántico, zona de comedor exterior y barbacoa Weber. Balcón acristalado adicional orientado al mar — utilizable todo el año.',
+'f7t':'Cocina Open Space Siemens','f7d':'Cocina integrada con el salón en open space. Placa de inducción, horno y microondas Siemens empotrados, lavavajillas y frigorífico americano Samsung.',
+'f8t':'Lavadero Independiente','f8d':'Lavadero acristalado separado con lavadora-secadora LG 11 kg — espacio funcional que las familias valoran.',
+'brands-label':'Marcas instaladas en el inmueble',
+'br1':'Climatización A+++','br2':'Cocina Completa','br3':'Frigorífico Americano','br4':'Lavadora-Secadora 11kg','br5':'Barbacoa a Gas','br6':'Porcelánico Premium',
+'equip-label':'Equipamiento','equip-title':'Cada equipamiento,<br>elegido por la <em>excelencia.</em>',
+'eq1t':'Aire Acondicionado','eq1d':'Unidades Daikin A+++ en todas las habitaciones. Control remoto por Wi-Fi, máxima eficiencia energética.',
+'eq2t':'Cocina Completa','eq2d':'Placa de inducción, horno y microondas empotrados, lavavajillas — todo Siemens de última generación.',
+'eq3t':'Frigorífico Americano','eq3d':'Con dispensador de hielo y agua filtrada incorporados. Capacidad extra-grande para familias.',
+'eq4t':'Lavadora-Secadora 11 kg','eq4d':'LG en lavadero acristalado independiente.',
+'eq5t':'Barbacoa a Gas','eq5d':'Weber instalada en el balcón exterior — la marca líder mundial para los fines de semana con vistas al mar.',
+'eq6t':'Mobiliario','eq6d':'El inmueble dispone de mobiliario de calidad de El Corte Inglés y Áreas Infinitas. Disponible mediante acuerdo separado.',
+'loc-tag':'Canidelo, Vila Nova de Gaia','loc-quote':'En 2ª línea de la Playa de Lavadores — donde el Duero encuentra el Atlántico y el carril bici parte hacia Espinho.',
+'d-porto':'Centro de Oporto','d-praia':'De la Playa','d-bike':'Carril Bici Costero',
+'loc-label':'Ubicación','loc-title':'Lo mejor de dos<br>mundos: mar y <em>ciudad.</em>',
+'loc-text1':'A la izquierda se extiende un carril bici costero hasta Espinho — ideal para deporte y ocio. A la derecha, la restinga de Cabedelo conecta con la Marina de Afurada en el río Duero.',
+'loc-text2':'A solo 8 minutos de Oporto con acceso directo al aeropuerto, Canidelo combina la tranquilidad costera con todo el dinamismo urbano de la segunda mayor área metropolitana de Portugal.',
+'area-label':'Entorno','area-title':'Todo lo que necesita,<br>a <em>minutos</em> de distancia.',
+'ap1t':'Carril Bici hasta Espinho','ap1d':'Extenso carril bici costero en la puerta de casa — ideal para ciclismo, jogging y paseos.',
+'ap2t':'Restinga de Cabedelo y Marina de Afurada','ap2d':'La pintoresca restinga conecta con la Marina de Afurada en el Duero — vistas espectaculares y cultura marinera auténtica.',
+'ap3t':'Playa de Lavadores (2ª línea)','ap3d':'Playa atlántica de bandera azul a pocos metros. Surf, natación y paseos con vistas al océano.',
+'ap4t':'Colegios de Referencia','ap4d':'Colégio Novo de Gaia y Agrupamento D. Pedro I en las inmediaciones. Enseñanza pública y privada de calidad.',
+'ap5t':'Comercio y Servicios','ap5d':'Continente y Auchan a menos de 1,5 km. Restaurantes, farmacias, clínicas y servicios bancarios cercanos.',
+'as1':'Precio Medio en Lavadores/Canidelo','as2':'Este Apartamento — 26% por debajo de la media','as3':'Revalorización Anual 2024–25','as4':'Habitantes en VN de Gaia',
+'inv-label':'Entorno en Transformación','inv-title':'24 hectáreas junto al mar<br>están <em>cambiando.</em>',
+'inv-text':'A 3 minutos de este apartamento, las 24 hectáreas del antiguo camping de la Madalena están siendo transformadas. El impacto en la zona costera de Canidelo es el mismo: más calidad de vida, más visibilidad, más revalorización.',
+'ic1t':'Ecoparque do Atlântico — Realidad','ic1d':'El Ayuntamiento de Gaia transformó las 24 hectáreas en un parque urbano público abierto desde agosto de 2025. Carril bici, picnic, campos de juego y educación ambiental.',
+'ic2t':'Gaia Infinity Hub — Capítulo Abierto','ic2d':'El proyecto original de 700M€ fue cancelado por incumplimiento contractual. Los inversores garantizan recurso. El terreno demostró el potencial estratégico de esta franja costera.',
+'hub-text':'<strong>Lo que es seguro:</strong> El Ecoparque do Atlântico ya existe y ya revaloriza el entorno. Un parque urbano de 24 hectáreas junto al mar, accesible a pie, es un activo permanente.',
+'yt-label':'Conozca la zona y el entorno','yt1':'Playa de Lavadores y el edificio','yt2':'Entorno de Canidelo','yt3':'Vila Nova de Gaia',
+'imi-label':'Ventaja Fiscal','imi-title':'Confort de nuevo.<br>IMI de <em>antiguo.</em>',
+'imi-text':'En Portugal, el IMI se calcula sobre el Valor Patrimonial Tributario — no sobre el precio de mercado. En edificios más antiguos, el coeficiente de vetustez reduce significativamente ese valor. Es una ventaja fiscal automática y perpetua.',
+'imic1t':'Menos IMI Anual','imic1d':'Comparado con una construcción nueva equivalente en Canidelo, este apartamento paga aproximadamente un 43% menos de IMI al año.',
+'imic2t':'Año de Construcción','imic2d':'Edificio sólido y maduro, 100% reformado por dentro. El VPT se mantiene muy inferior al de inmuebles recientes.',
+'imic3t':'Tasa IMI en Vila Nova de Gaia','imic3d':'Vila Nova de Gaia aplica la tasa mínima de IMI permitida por ley — 0,30% sobre el VPT. Una de las más bajas del país.',
+'imic4t':'Reformado — sin penalización','imic4d':'La reforma no aumenta el IMI. Fontanería, electricidad, techo, revestimientos y carpintería nuevos — la ventaja se mantiene intacta.',
+'imi-quote':'"La misma reforma, el mismo confort, el mismo equipamiento — y aproximadamente un 43% menos de impuesto al año que en un apartamento nuevo equivalente. Año tras año, automáticamente."',
+'cta-label':'Programar Visita','cta-title':'¿Listo para <em>vivir</em><br>junto al mar?',
+'cta-text':'Venta directa por el propietario. Abierto a colaboración con agentes inmobiliarios — comisión del 2,5% + IVA a cargo del vendedor, mediante acuerdo previo.',
+'cta-btn1':'Visita Virtual 3D','cta-btn2':'Contactar Propietario',
+'cta-ref':'Canidelo · Vila Nova de Gaia · Venta Directa por el Propietario',
+'f-note':'© 2026 · T3+1 · Rua Jorge Dias, Canidelo, Vila Nova de Gaia'
 },
 ru:{
-'h-price-sub':'Прямая Продажа · Без Комиссии %','h-eyebrow':'Канидело · Вила-Нова-ди-Гая · 2-я линия от моря',
-'h-title':'Жить между<br><em>Атлантикой</em><br>и Порту.','h-sub':'T3+1 полностью отремонтирован, 155 м² жилой площади, вид на море, премиум оборудование и мебель включены — 2-я линия от пляжа Лаваторес.',
-'hs-util':'Жилая площадь','hs-tipo':'Тип','hs-wc':'Ванные комнаты','hs-view':'Атлантический океан','h-scroll':'Открыть',
-'tag1':'Полная Реновация','tag2':'Daikin A+++ Wi-Fi','tag3':'Тройное Остекление','tag4':'Siemens + Samsung','tag5':'Балкон с видом на море','tag6':'Двойной Душ + Ванна','tag7':'Мебель Включена','tag8':'Гриль Weber','tag9':'Гараж + Кладовая',
-'video-label':'Внутри <span>Квартиры</span>',
-'m3d-label':'Виртуальный тур 3D','m3d-title':'Исследуйте каждую комнату<br>не выходя из <em>дома.</em>','m3d-text':'Перемещайтесь по всем помещениям в 360° с технологией Matterport — осмотрите каждую комнату, измерьте расстояния и почувствуйте реальные размеры квартиры.',
-'feat-label':'О Квартире','feat-title':'Полная реновация.<br>Нулевой компромисс по <em>качеству.</em>','feat-desc':'Глубокое структурное вмешательство: замена труб, новый электрощит, подвесной гипсовый потолок, плитка Revigres и тройное остекление по всей квартире.',
+'h-eyebrow':'Канидело · Вила-Нова-ди-Гая · 2-я линия от моря',
+'h-title':'Жить между<br><em>Атлантикой</em><br>и Дуэро.',
+'h-sub':'T3+1 полностью отремонтирован, 155 м², вид на море, премиум оборудование — 2-я линия от пляжа Лаваторес.',
+'hs-util':'Общая площадь','hs-tipo':'Тип','hs-wc':'Ванные комнаты','hs-view':'Прямая продажа',
+'tag1':'Полная Реновация','tag2':'Daikin A+++ Wi-Fi','tag3':'Тройное Остекление','tag4':'Siemens + Samsung',
+'tag5':'Балкон с видом на море','tag6':'Сьют с Ванной','tag7':'Каминная печь','tag8':'Гриль Weber','tag9':'Гараж + Кладовая',
+'spec-label':'Технические Характеристики','spec-title':'Все <em>детали</em><br>об объекте.',
+'sk1':'Тип','sk2':'Общая Площадь','sk3':'Ванные Комнаты','sk4':'Этаж','sk5':'Парковка','sk6':'Кладовая',
+'sk7':'Год Постройки','sk8':'Состояние','sk9':'Вид','sk10':'Климат Спален','sk11':'Отопление Гостиной',
+'sk12':'Остекление','sk13':'Покрытие Пола','sk14':'Обслуживание','sk15':'Мебель','sk16':'Цена',
+'feat-label':'О Квартире','feat-title':'Полная реновация.<br>Нулевой компромисс по <em>качеству.</em>',
+'feat-desc':'Глубокое вмешательство: замена труб, новый электрощит, подвесной гипсовый потолок, плитка Revigres и тройное остекление по всей квартире.',
 'f1t':'Тройное Остекление','f1d':'Высокоэффективные рамы с тройным стеклопакетом на всех окнах. Превосходная тепло- и звукоизоляция — тишина и стабильная температура круглый год.',
-'f2t':'Daikin A+++ с Wi-Fi','f2d':'Кондиционеры Daikin A+++ во всех спальнях, управляемые дистанционно через Wi-Fi. Максимальная энергоэффективность.',
-'f3t':'Каминная печь на Пеллетах Wi-Fi','f3d':'Каминная печь на пеллетах в гостиной, также управляемая через Wi-Fi. Эффективное отопление и изысканная атмосфера зимними вечерами.',
-'f4t':'Тепловой Насос ГВС','f4d':'Тепловой насос для горячей воды во всех кранах и душах. Высокая энергоэффективность и постоянный комфорт.',
-'f5t':'Сьют с Двойным Душем','f5d':'Главная спальня-сьют с двойным душем И ванной — пространство для отдыха, соперничающее с лучшими отелями. Встроенные гардеробы во всех комнатах.',
-'f6t':'Угловой Балкон · Вид на Море','f6d':'Угловой балкон с прямым видом на Атлантику и диванным гарнитуром. Уже разработан проект гурмэ-зоны.',
-'f7t':'TV 65" и 75" включены','f7d':'75" TV в гостиной и 65" в каждой спальне. Мебель El Corte Inglés и Áreas Infinitas включена в цену.',
-'f8t':'Кухня-Гостиная Siemens','f8d':'Полная кухня Siemens: индукционная варочная панель, встроенные духовка и микроволновка, посудомойка и холодильник Samsung с диспенсером льда.',
+'f2t':'Daikin A+++ с Wi-Fi','f2d':'Кондиционеры Daikin A+++ во всех спальнях, управляемые через Wi-Fi. Максимальная энергоэффективность.',
+'f3t':'Каминная Печь на Пеллетах','f3d':'Каминная печь на пеллетах в гостиной — эффективное отопление и уютная атмосфера зимними вечерами.',
+'f4t':'Тепловой Насос ГВС','f4d':'Тепловой насос для горячей воды во всех кранах и душах. Высокая энергоэффективность.',
+'f5t':'Сьют с Двойным Душем','f5d':'Главная спальня-сьют с двойным душем и ванной — пространство для отдыха, соперничающее с лучшими отелями.',
+'f6t':'Угловой Балкон · Вид на Море','f6d':'Угловой балкон с видом на Атлантику, обеденная зона и гриль Weber. Дополнительный застеклённый балкон с видом на море — используется круглый год.',
+'f7t':'Кухня-Гостиная Siemens','f7d':'Кухня совмещена с гостиной в концепции open space. Индукционная плита, духовка и микроволновка Siemens, посудомойка и холодильник Samsung.',
+'f8t':'Отдельная Прачечная','f8d':'Застеклённая прачечная со стиральной-сушильной машиной LG 11 кг — практичное пространство, которое ценят семьи.',
 'brands-label':'Марки, установленные в квартире',
 'br1':'Климатизация A+++','br2':'Полная Кухня','br3':'Холодильник American','br4':'Стиральная-Сушильная 11кг','br5':'Газовый Гриль','br6':'Премиум Керамогранит',
 'equip-label':'Оборудование','equip-title':'Каждый прибор,<br>выбран за <em>совершенство.</em>',
 'eq1t':'Кондиционирование','eq1d':'Блоки Daikin A+++ во всех спальнях. Дистанционное управление через Wi-Fi, максимальная энергоэффективность.',
 'eq2t':'Полная Кухня','eq2d':'Индукционная панель, встроенные духовка и микроволновка, посудомойка — всё Siemens последнего поколения.',
-'eq3t':'Холодильник American','eq3d':'Samsung со встроенным диспенсером льда и фильтрованной воды. Увеличенный объём для семей.',
-'eq4t':'Стиральная-Сушильная 11 кг','eq4d':'LG с новейшими технологиями стирки. Включена в стоимость квартиры.',
-'eq5t':'Газовый Гриль','eq5d':'Weber — мировой лидер — установлен на балконе с диванным гарнитуром для отдыха на открытом воздухе.',
-'eq6t':'Дизайнерская Мебель','eq6d':'Квартира сдаётся меблированной: El Corte Inglés и Áreas Infinitas. Встроенные гардеробы, 75" TV гостиная + 65" спальни — включены.',
-'loc-tag':'Канидело, Вила-Нова-ди-Гая','loc-quote':'На 2-й линии пляжа Лаваторес — где Дуэро встречает Атлантику и велодорожка ведёт в сторону Эспиньо.',
+'eq3t':'Холодильник American','eq3d':'Со встроенным диспенсером льда и фильтрованной воды. Увеличенный объём для семей.',
+'eq4t':'Стиральная-Сушильная 11 кг','eq4d':'LG в отдельной застеклённой прачечной.',
+'eq5t':'Газовый Гриль','eq5d':'Weber на внешнем балконе — мировой лидер для выходных с видом на море.',
+'eq6t':'Мебель','eq6d':'В квартире мебель от El Corte Inglés и Áreas Infinitas. Доступна по отдельному соглашению.',
+'loc-tag':'Канидело, Вила-Нова-ди-Гая','loc-quote':'На 2-й линии пляжа Лаваторес — где Дуэро встречает Атлантику и велодорожка ведёт в Эспиньо.',
 'd-porto':'Центр Порту','d-praia':'От пляжа','d-bike':'Прибрежная Велодорожка',
 'loc-label':'Расположение','loc-title':'Лучшее из двух миров:<br>море и <em>город.</em>',
-'loc-text1':'Слева тянется протяжённая прибрежная велодорожка до Эспиньо — идеальна для спорта и отдыха. Справа коса Кабедело соединяется с Мариной Афурада на реке Дуэро со зрелищными видами.',
+'loc-text1':'Слева тянется прибрежная велодорожка до Эспиньо — идеальна для спорта и отдыха. Справа коса Кабедело соединяется с Мариной Афурада на реке Дуэро.',
 'loc-text2':'Всего в 8 минутах от Порту с прямым доступом к аэропорту, Канидело сочетает прибрежное спокойствие с городским динамизмом второго по величине мегаполиса Португалии.',
 'area-label':'Окружение','area-title':'Всё необходимое в<br><em>нескольких минутах.</em>',
-'ap1t':'Велодорожка до Эспиньо','ap1d':'Протяжённая прибрежная велодорожка у вашего порога вдоль всего морского побережья Гая до Эспиньо — велоспорт, бег, прогулки.',
-'ap2t':'Коса Кабедело и Марина Афурада','ap2d':'Живописная коса соединяется с Мариной Афурада на реке Дуэро — зрелищные виды и подлинная рыболовецкая культура.',
+'ap1t':'Велодорожка до Эспиньо','ap1d':'Протяжённая прибрежная велодорожка у вашего порога — велоспорт, бег, прогулки.',
+'ap2t':'Коса Кабедело и Марина Афурада','ap2d':'Живописная коса соединяется с Мариной Афурада на Дуэро — зрелищные виды и рыболовецкая культура.',
 'ap3t':'Пляж Лаваторес (2-я линия)','ap3d':'Атлантический пляж с голубым флагом в нескольких метрах. Сёрфинг, плавание и прогулки с видом на океан.',
-'ap4t':'Школы Высокого Уровня','ap4d':'Коллеж Ново де Гая и школьная группа Д. Педро I поблизости. Качественное государственное и частное образование.',
+'ap4t':'Школы Высокого Уровня','ap4d':'Коллеж Ново де Гая и школа Д. Педро I поблизости. Качественное государственное и частное образование.',
 'ap5t':'Магазины и Сервисы','ap5d':'Continente и Auchan в 1,5 км. Рестораны, аптеки, клиники и банки рядом.',
-'as1':'Жителей в ВН де Гая','as2':'Средняя цена в районе','as3':'Годовой рост стоимости 2024–25','as4':'Крупнейший город Португалии',
-'inv-label':'Инвестиционный Потенциал','inv-title':'Проект на €700М<br>рождается прямо <em>рядом.</em>','inv-text':'На 21 гектаре бывшего кемпинга Мадалена, в 3 минутах от этой квартиры, разворачивается один из крупнейших инвестиционных проектов Северной Португалии. Независимо от исхода, территория получит масштабное развитие с прямым влиянием на стоимость недвижимости.',
-'ic1t':'Gaia Infinity Hub','ic1d':'Бразильский инвестиционный проект по созданию мега-технохаба на 21 га бывшего кемпинга Орбитур — для привлечения международных технологических гигантов на Север Португалии.',
-'ic2t':'Масштаб Проекта','ic2d':'Муниципалитет Гая расторг контракт за нарушение, но инвесторы гарантируют обжалование. Территория всегда получит масштабную застройку — технохаб или экопарк.',
-'hub-text':'<strong>Стратегическое расположение:</strong> Эта квартира находится в нескольких минутах от спорной территории. Любое крупномасштабное развитие там неизбежно означает значительный рост стоимости прибрежной жилой недвижимости Канидело.',
+'as1':'Средняя цена в Лаваторес/Канидело','as2':'Эта Квартира — на 26% ниже средней','as3':'Годовой рост стоимости 2024–25','as4':'Жителей в ВН де Гая',
+'inv-label':'Преобразование Окружения','inv-title':'24 гектара у моря<br><em>меняются.</em>',
+'inv-text':'В 5 минутах от этой квартиры 24 гектара бывшего кемпинга Мадалена преобразуются. Каков бы ни был конечный результат, влияние на побережье Канидело одинаково: лучшее качество жизни, большая видимость, рост стоимости.',
+'ic1t':'Ecoparque do Atlântico — Реальность','ic1d':'Муниципалитет Гая превратил 24 гектара в общественный городской парк, открытый с августа 2025 года. Велодорожки, пикник, спортплощадки и экологическое образование.',
+'ic2t':'Gaia Infinity Hub — Открытая Глава','ic2d':'Первоначальный проект на €700 млн был отменён за нарушение договора. Инвесторы гарантируют обжалование. Территория доказала стратегический потенциал этого побережья.',
+'hub-text':'<strong>Что определённо:</strong> Ecoparque do Atlântico уже существует и уже повышает стоимость окружения. Городской парк площадью 24 гектара у моря, в 5 минутах от этой квартиры, является постоянным активом.',
 'yt-label':'Познакомьтесь с районом и окружением','yt1':'Пляж Лаваторес и здание','yt2':'Окружение Канидело','yt3':'Вила-Нова-ди-Гая',
-'imi-label':'Налоговое Преимущество','imi-title':'То, о чём вам никто<br>не расскажет про <em>IMI.</em>','imi-text':'В Португалии налог на имущество IMI рассчитывается от кадастровой стоимости — а у старых зданий она существенно ниже, чем у новостроек, обеспечивая значительную ежегодную экономию.',
-'imic1t':'Меньше IMI в год','imic1d':'По сравнению с новостройкой аналогичной стоимости, эта отремонтированная квартира 1988 года платит значительно меньше налога — без ущерба для качества.','imic2t':'Накопленная Экономия','imic2d':'Разница в IMI за десятилетие равна стоимости автомобиля. Деньги автоматически остаются в вашем кармане год за годом.','imic3t':'Год Постройки','imic3d':'Надёжное зрелое здание, 100% отремонтированное внутри. Кадастровая стоимость намного ниже современного жилья — постоянное налоговое преимущество.','imic4t':'100% Отремонтировано','imic4d':'Трубы, электрика, щиток, потолок, отделка и окна — всё новое. Налоговое преимущество старого жилья с комфортом нового.',
-'imi-quote':'"Отремонтированная старая квартира может сэкономить владельцу стоимость автомобиля за 10 лет только на IMI — по сравнению с новостройкой аналогичной стоимости."',
-'spec-label':'Технические Характеристики','spec-title':'Все <em>детали</em><br>об объекте.',
-'sk1':'Тип','sk2':'Общая Площадь','sk3':'Жилая Площадь','sk4':'Ванные Комнаты','sk5':'Этаж','sk6':'Парковка','sk7':'Год Постройки','sk8':'Состояние','sk9':'Ориентация','sk10':'Вид','sk11':'Климат-Контроль','sk12':'Обслуживание','sk13':'Покрытие Пола','sk14':'Остекление','sk15':'Мебель','sk16':'Цена',
-'sv8':'Полностью Отремонтировано','sv10':'Атлантический Океан','sv13':'Тройной Стеклопакет','sv15':'Включена (возможна договорённость)',
-'cta-label':'Записаться на Просмотр','cta-title':'Готовы <em>жить</em><br>у моря?','cta-text':'Прямая продажа от собственника — без посредников, без агентских комиссий. Свяжитесь напрямую для записи на просмотр.',
-'cta-btn1':'Смотреть Объявление','cta-btn2':'3D Виртуальный Тур','cta-ref':'Канидело · Вила-Нова-ди-Гая · Прямая Продажа',
-'f-note':'© 2025 · T3+1 · Rua Jorge Dias, Канидело, Вила-Нова-ди-Гая','see-all-txt':'Смотреть все 26 фото'
-}};
+'imi-label':'Налоговое Преимущество','imi-title':'Комфорт нового.<br>Налог <em>старого.</em>',
+'imi-text':'В Португалии IMI рассчитывается от кадастровой стоимости — не от рыночной цены. В старых зданиях коэффициент износа существенно снижает эту стоимость. Это автоматическое, бессрочное налоговое преимущество, которое новое строительство никогда не может предложить.',
+'imic1t':'Меньше IMI в год','imic1d':'По сравнению с новостройкой аналогичной стоимости в Канидело, эта квартира платит примерно на 43% меньше IMI в год.',
+'imic2t':'Год Постройки','imic2d':'Надёжное зрелое здание, 100% отремонтированное внутри. Кадастровая стоимость остаётся намного ниже, чем у новых объектов.',
+'imic3t':'Ставка IMI в Вила-Нова-ди-Гая','imic3d':'Вила-Нова-ди-Гая применяет минимальную ставку IMI, разрешённую законом — 0,30% от кадастровой стоимости. Одна из самых низких в стране.',
+'imic4t':'Отремонтировано — без штрафа','imic4d':'Ремонт не увеличивает IMI. Трубы, электрика, потолок, отделка и окна новые — преимущество остаётся нетронутым.',
+'imi-quote':'"Тот же ремонт, тот же комфорт, то же оборудование — и примерно на 43% меньше налога в год, чем в эквивалентной новостройке. Год за годом, автоматически."',
+'cta-label':'Записаться на Просмотр','cta-title':'Готовы <em>жить</em><br>у моря?',
+'cta-text':'Прямая продажа от собственника. Открыт к сотрудничеству с агентами недвижимости — комиссия 2,5% + НДС за счёт продавца, по предварительному соглашению.',
+'cta-btn1':'Виртуальный Тур 3D','cta-btn2':'Связаться с Владельцем',
+'cta-ref':'Канидело · Вила-Нова-ди-Гая · Прямая Продажа от Собственника',
+'f-note':'© 2026 · T3+1 · Rua Jorge Dias, Канидело, Вила-Нова-ди-Гая'
+}
+};
 
 let currentLang='pt';
 function setLang(lang){
   currentLang=lang;
-  document.querySelectorAll('.lang-btn').forEach(b=>{
+  document.querySelectorAll('.lang-btn').forEach(function(b){
     b.classList.remove('active');
-    const txt=b.textContent.trim();
+    var txt=b.textContent.trim();
     if((lang==='ru'&&txt==='РУ')||(lang!=='ru'&&txt.toLowerCase()===lang))b.classList.add('active');
   });
-  const data=T[lang];
-  for(const[id,html]of Object.entries(data)){const el=document.getElementById(id);if(el)el.innerHTML=html;}
+  var data=T[lang];
+  for(var id in data){var el=document.getElementById(id);if(el)el.innerHTML=data[id];}
 }
 
-// SCROLL REVEAL
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});
-},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-
-
-function switchVideo(btn, fileId) {
-  var iframe = document.querySelector('.video-hero iframe');
-  if (iframe) iframe.src = 'https://drive.google.com/file/d/' + fileId + '/preview';
-  document.querySelectorAll('.video-hero a').forEach(function(a) {
-    a.style.color = 'rgba(255,255,255,0.5)';
-    a.style.borderColor = 'rgba(255,255,255,0.15)';
-  });
-  btn.style.color = 'white';
-  btn.style.borderColor = 'rgba(201,168,76,0.6)';
-}
+const observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el);});
 
 buildPhotoGrid();
-setLang('pt');
 </script>
 </body>
 </html>
