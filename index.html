@@ -190,7 +190,45 @@ body{font-family:'Jost',sans-serif;background:var(--white);color:var(--deep);ove
 .btn-secondary{background:transparent;color:white;border:1px solid rgba(255,255,255,0.4);padding:16px 44px;font-family:'Jost',sans-serif;font-size:0.75rem;letter-spacing:0.25em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-block;}
 .btn-secondary:hover{border-color:white;background:rgba(255,255,255,0.08);}
 footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border-top:1px solid rgba(201,168,76,0.15);}
-.footer-brand{font-family:'Cormorant Garamond''pt')">PT</button>
+.footer-brand{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1.2rem;letter-spacing:0.3em;text-transform:uppercase;}
+.footer-note{font-size:0.7rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;}
+
+.whatsapp-float:hover{background:#20bc5a;transform:translateY(-3px);box-shadow:0 8px 32px rgba(37,211,102,0.5);}
+.whatsapp-icon{width:28px;height:28px;flex-shrink:0;}
+.whatsapp-text{display:flex;flex-direction:column;}
+.whatsapp-label{font-size:0.55rem;letter-spacing:0.15em;color:rgba(255,255,255,0.8);text-transform:uppercase;line-height:1;}
+.whatsapp-title{font-size:0.82rem;color:white;font-weight:500;line-height:1.3;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.8s cubic-bezier(0.22,1,0.36,1),transform 0.8s cubic-bezier(0.22,1,0.36,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s;}.reveal-delay-2{transition-delay:0.2s;}
+.reveal-delay-3{transition-delay:0.3s;}.reveal-delay-4{transition-delay:0.4s;}
+@media(max-width:900px){
+  .section{padding:70px 30px;}.hero-content{padding:60px 24px 180px;}.hero-price-badge{display:none;}
+  .split-section{grid-template-columns:1fr;}.split-visual{min-height:300px;}.split-text{padding:50px 30px;}
+  .area-grid{grid-template-columns:1fr;}.specs-grid{grid-template-columns:1fr;}
+  .invest-grid{grid-template-columns:1fr;}.yt-grid{grid-template-columns:1fr;}
+  .photo-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto;}
+  .photo-cell:first-child{grid-column:1/3;grid-row:auto;height:240px;}
+  .photo-cell{height:180px;}
+  .sea-stripe{padding:14px 20px;}.lang-bar{padding:0 16px;}.cta-section{padding:80px 30px;}
+  footer{padding:30px;flex-direction:column;text-align:center;}
+  .matterport-header{padding:50px 30px 0;}
+  .brands-row{gap:24px;}.brand-divider{display:none;}
+  .hub-alert{padding:24px 28px;}
+  .hero-vt{bottom:24px;right:16px;left:16px;flex-direction:column;gap:10px;align-items:stretch;}
+  .hero-vt-btn{padding:12px 16px;margin-top:0!important;justify-content:flex-start;}
+  .hero-vt-icon{width:32px;height:32px;flex-shrink:0;}
+  .hero-stats{gap:24px;}
+  
+  .whatsapp-title{font-size:0.75rem;}
+}
+</style>
+</head>
+<body>
+
+<header class="lang-bar">
+  <div class="lang-logo">Canidelo <span style="color:rgba(255,255,255,0.2)">·</span> Vista Mar</div>
+  <div class="lang-btns">
     <button class="lang-btn active" onclick="setLang('pt')">PT</button>
     <button class="lang-btn" onclick="setLang('en')">EN</button>
     <button class="lang-btn" onclick="setLang('fr')">FR</button>
@@ -479,17 +517,18 @@ footer{background:var(--deep);padding:48px 60px;display:flex;justify-content:spa
   <div class="cta-inner reveal">
     <div class="section-label" style="justify-content:center;color:var(--gold)" id="cta-label">Agendar Visita</div>
     <h2 class="section-title" id="cta-title">Pronto a <em>viver</em><br>à beira-mar?</h2>
-    <p class="cta-subtitle" id="cta-text">Para mais informações ou para agendar visita, contacte o mediador imobiliário.</p>
+    <p class="cta-subtitle" id="cta-text">Para mais informações ou para agendar uma visita, contacte o seu mediador imobiliário.</p>
     <div class="cta-btns">
       <a href="https://my.matterport.com/show/?m=9LdBxgVygAe" target="_blank" class="btn-primary" id="cta-btn1">Visita Virtual 3D</a>
     </div>
-    <p style="margin-top:36px;font-size:0.7rem;color:rgba(255,255,255,0.3);letter-spacing:0.15em" id="cta-ref">Canidelo · Vila Nova de Gaia</p>
+    <p style="margin-top:36px;font-size:0.7rem;color:rgba(255,255,255,0.3);letter-spacing:0.15em" id="cta-ref">Canidelo · Vila Nova de Gaia · Venda Directa pelo Proprietário</p>
   </div>
 </section>
 
 <footer>
   <div class="footer-brand">Canidelo · Vista Mar</div>
   <div class="footer-note" id="f-note">© 2026 · T3+1 · Rua Jorge Dias, Canidelo, Vila Nova de Gaia</div>
+    <div style="font-size:0.6rem;color:rgba(255,255,255,0.18);letter-spacing:0.15em;margin-top:6px;">Desenvolvido por LRNSdigital</div>
     <div style="font-size:0.6rem;color:rgba(255,255,255,0.18);letter-spacing:0.15em;margin-top:6px;">Desenvolvido por LRNSdigital</div>
 </footer>
 
@@ -649,14 +688,14 @@ pt:{
 'cta-label':'Agendar Visita','cta-title':'Pronto a <em>viver</em><br>à beira-mar?',
 'cta-text':'Para mais informações ou para agendar uma visita, contacte o seu mediador imobiliário.',
 'cta-btn1':'Visita Virtual 3D','cta-btn2':'',
-'cta-ref':'Canidelo · Vila Nova de Gaia',
+'cta-ref':'Canidelo · Vila Nova de Gaia · Venda Directa pelo Proprietário',
 'f-note':'© 2026 · T3+1 · Rua Jorge Dias, Canidelo, Vila Nova de Gaia'
 },
 en:{
 'h-eyebrow':'Canidelo · Vila Nova de Gaia · 2nd Line from the Sea',
 'h-title':'Living between<br>the <em>Atlantic</em><br>and the Douro.',
 'h-sub':'Fully renovated T3+1 with 155 m², sea views, premium appliances — 2nd line from Lavadores Beach.',
-'hs-util':'Total Area','hs-tipo':'Typology','hs-wc':'Bathrooms','hs-view':'Atlantic Ocean',
+'hs-util':'Total Area','hs-tipo':'Typology','hs-wc':'Bathrooms','hs-view':'Direct Sale',
 'tag1':'Full Renovation','tag2':'Daikin A+++ Wi-Fi','tag3':'Triple Glazing','tag4':'Siemens + Samsung',
 'tag5':'Sea View Balcony','tag6':'Suite with Bathtub','tag7':'Pellet Fireplace','tag8':'Weber BBQ','tag9':'Garage + Storage',
 'spec-label':'Property Details','spec-title':'All the <em>details</em><br>of the property.',
@@ -708,16 +747,16 @@ en:{
 'imic4t':'Renovated — no penalty','imic4d':'Renovation does not increase IMI. New plumbing, electrics, ceiling, tiles and frames — the advantage remains intact.',
 'imi-quote':'"The same renovation, the same comfort, the same appliances — and approximately 43% less tax per year than you would pay in an equivalent new apartment. Year after year, automatically."',
 'cta-label':'Schedule a Visit','cta-title':'Ready to <em>live</em><br>by the sea?',
-'cta-text':'For more information or to schedule a viewing, please contact your estate agent.',
+'cta-text':'Direct sale by owner. Open to collaboration with estate agents — 2.5% + VAT commission paid by seller, by prior agreement.',
 'cta-btn1':'3D Virtual Tour','cta-btn2':'',
-'cta-ref':'Canidelo · Vila Nova de Gaia',
+'cta-ref':'Canidelo · Vila Nova de Gaia · Direct Sale by Owner',
 'f-note':'© 2026 · T3+1 · Rua Jorge Dias, Canidelo, Vila Nova de Gaia'
 },
 fr:{
 'h-eyebrow':'Canidelo · Vila Nova de Gaia · 2ème Ligne de Mer',
 'h-title':'Vivre entre<br>l\'<em>Atlantique</em><br>et le Douro.',
 'h-sub':'T3+1 entièrement rénové de 155 m², vue mer, équipements premium — 2ème ligne de la Plage de Lavadores.',
-'hs-util':'Surface Totale','hs-tipo':'Typologie','hs-wc':'Salles de Bain','hs-view':'Océan Atlantique',
+'hs-util':'Surface Totale','hs-tipo':'Typologie','hs-wc':'Salles de Bain','hs-view':'Vente Directe',
 'tag1':'Rénovation Totale','tag2':'Daikin A+++ Wi-Fi','tag3':'Triple Vitrage','tag4':'Siemens + Samsung',
 'tag5':'Balcon Vue Mer','tag6':'Suite avec Baignoire','tag7':'Cheminée à Pellets','tag8':'Barbecue Weber','tag9':'Garage + Débarras',
 'spec-label':'Fiche Technique','spec-title':'Tous les <em>détails</em><br>du bien.',
@@ -769,16 +808,16 @@ fr:{
 'imic4t':'Rénové — sans pénalité','imic4d':'La rénovation n\'augmente pas l\'IMI. Plomberie, électricité, plafond, revêtements et menuiseries neufs — l\'avantage reste intact.',
 'imi-quote':'"La même rénovation, le même confort, les mêmes équipements — et environ 43% moins d\'impôt par an que vous paieriez dans un appartement neuf équivalent. Année après année, automatiquement."',
 'cta-label':'Planifier une Visite','cta-title':'Prêt à <em>vivre</em><br>au bord de la mer ?',
-'cta-text':'Pour plus d\'informations ou pour planifier une visite, contactez votre agent immobilier.',
+'cta-text':'Pour plus d'informations ou pour planifier une visite, contactez votre agent immobilier.',
 'cta-btn1':'Visite Virtuelle 3D','cta-btn2':'',
-'cta-ref':'Canidelo · Vila Nova de Gaia',
+'cta-ref':'Canidelo · Vila Nova de Gaia · Vente Directe par le Propriétaire',
 'f-note':'© 2026 · T3+1 · Rua Jorge Dias, Canidelo, Vila Nova de Gaia'
 },
 es:{
 'h-eyebrow':'Canidelo · Vila Nova de Gaia · 2ª Línea del Mar',
 'h-title':'Vivir entre<br>el <em>Atlántico</em><br>y el Duero.',
 'h-sub':'T3+1 totalmente reformado con 155 m², vistas al mar, equipamiento premium — en 2ª línea de la Playa de Lavadores.',
-'hs-util':'Área Total','hs-tipo':'Tipología','hs-wc':'Cuartos de Baño','hs-view':'Océano Atlántico',
+'hs-util':'Área Total','hs-tipo':'Tipología','hs-wc':'Cuartos de Baño','hs-view':'Venta Directa',
 'tag1':'Reforma Integral','tag2':'Daikin A+++ Wi-Fi','tag3':'Triple Acristalamiento','tag4':'Siemens + Samsung',
 'tag5':'Balcón Vista Mar','tag6':'Suite con Bañera','tag7':'Estufa de Pellets','tag8':'Barbacoa Weber','tag9':'Garaje + Trastero',
 'spec-label':'Ficha Técnica','spec-title':'Todos los <em>detalles</em><br>del inmueble.',
@@ -830,16 +869,16 @@ es:{
 'imic4t':'Reformado — sin penalización','imic4d':'La reforma no aumenta el IMI. Fontanería, electricidad, techo, revestimientos y carpintería nuevos — la ventaja se mantiene intacta.',
 'imi-quote':'"La misma reforma, el mismo confort, el mismo equipamiento — y aproximadamente un 43% menos de impuesto al año que en un apartamento nuevo equivalente. Año tras año, automáticamente."',
 'cta-label':'Programar Visita','cta-title':'¿Listo para <em>vivir</em><br>junto al mar?',
-'cta-text':'Para más información o para programar una visita, contacte con su agente inmobiliario.',
+'cta-text':'Venta directa por el propietario. Abierto a colaboración con agentes inmobiliarios — comisión del 2,5% + IVA a cargo del vendedor, mediante acuerdo previo.',
 'cta-btn1':'Visita Virtual 3D','cta-btn2':'',
-'cta-ref':'Canidelo · Vila Nova de Gaia',
+'cta-ref':'Canidelo · Vila Nova de Gaia · Venta Directa por el Propietario',
 'f-note':'© 2026 · T3+1 · Rua Jorge Dias, Canidelo, Vila Nova de Gaia'
 },
 ru:{
 'h-eyebrow':'Канидело · Вила-Нова-ди-Гая · 2-я линия от моря',
 'h-title':'Жить между<br><em>Атлантикой</em><br>и Дуэро.',
 'h-sub':'T3+1 полностью отремонтирован, 155 м², вид на море, премиум оборудование — 2-я линия от пляжа Лаваторес.',
-'hs-util':'Общая площадь','hs-tipo':'Тип','hs-wc':'Ванные комнаты','hs-view':'Атлантический океан',
+'hs-util':'Общая площадь','hs-tipo':'Тип','hs-wc':'Ванные комнаты','hs-view':'Прямая продажа',
 'tag1':'Полная Реновация','tag2':'Daikin A+++ Wi-Fi','tag3':'Тройное Остекление','tag4':'Siemens + Samsung',
 'tag5':'Балкон с видом на море','tag6':'Сьют с Ванной','tag7':'Каминная печь','tag8':'Гриль Weber','tag9':'Гараж + Кладовая',
 'spec-label':'Технические Характеристики','spec-title':'Все <em>детали</em><br>об объекте.',
@@ -893,7 +932,7 @@ ru:{
 'cta-label':'Записаться на Просмотр','cta-title':'Готовы <em>жить</em><br>у моря?',
 'cta-text':'Для получения информации или записи на просмотр обратитесь к вашему агенту по недвижимости.',
 'cta-btn1':'Виртуальный Тур 3D','cta-btn2':'',
-'cta-ref':'Канидело · Вила-Нова-ди-Гая',
+'cta-ref':'Канидело · Вила-Нова-ди-Гая · Прямая Продажа от Собственника',
 'f-note':'© 2026 · T3+1 · Rua Jorge Dias, Канидело, Вила-Нова-ди-Гая'
 }
 };
@@ -914,7 +953,6 @@ const observer=new IntersectionObserver(function(entries){entries.forEach(functi
 document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el);});
 
 buildPhotoGrid();
-setLang('pt');
 </script>
 </body>
 </html>
