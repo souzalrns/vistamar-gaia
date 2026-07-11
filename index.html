@@ -227,12 +227,7 @@ footer{background:var(--deep);padding:32px 60px;display:flex;justify-content:cen
 .whatsapp-float { display: none !important; }
 #cta-btn2 { display: none !important; }
 
-/* Teleferico grid responsive */
-@media(max-width:768px){
-  .teleferico-grid{grid-template-columns:1fr !important;gap:24px !important;}
-  .teleferico-mid{border-left:none !important;border-right:none !important;border-top:1px solid rgba(201,168,76,0.25);border-bottom:1px solid rgba(201,168,76,0.25);padding:24px 0 !important;text-align:center !important;}
-  .invest-section .reveal[style*="grid"]{padding:28px 24px !important;}
-}
+
 </style>
 </head>
 <body>
@@ -472,25 +467,22 @@ footer{background:var(--deep);padding:32px 60px;display:flex;justify-content:cen
       <p class="section-text" id="inv-text">A Câmara de Vila Nova de Gaia anunciou um teleférico público que vai ligar a Praia das Pedras Amarelas — em Canidelo — à futura estação de metro da Arrábida (Linha Rubi). O concurso público é lançado até Agosto de 2026. A paragem de Lavadores fica a metros deste apartamento.</p>
     </div>
 
-    <!-- TELEFERICO HERO CARD -->
-    <div class="reveal" style="margin-top:48px;background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(201,168,76,0.04));border:1px solid rgba(201,168,76,0.4);padding:44px 48px;position:relative;overflow:hidden;">
-      <div style="position:absolute;top:-20px;right:30px;font-size:8rem;opacity:0.06;font-family:'Cormorant Garamond',serif;color:var(--gold);">🚡</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;align-items:center;" class="teleferico-grid">
-        <div>
-          <div style="font-size:0.6rem;letter-spacing:0.28em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;" id="tf-label1">Concurso público</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:3rem;color:white;line-height:1;" id="tf-val1">Agosto<br>2026</div>
-          <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:8px;line-height:1.6;" id="tf-desc1">Lançamento oficial do concurso pela Câmara de Gaia — projecto confirmado pelo presidente Luís Filipe Menezes</div>
-        </div>
-        <div style="border-left:1px solid rgba(201,168,76,0.25);border-right:1px solid rgba(201,168,76,0.25);padding:0 40px;text-align:center;" class="teleferico-mid">
-          <div style="font-size:0.6rem;letter-spacing:0.28em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;" id="tf-label2">Valorização estimada</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:4.5rem;color:var(--gold-light);line-height:1;">+30%</div>
-          <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:8px;line-height:1.6;" id="tf-desc2">Potencial de valorização documentado em estudos de mercado para imóveis até 1 km de novas paragens de transporte público (DataZap/GeoImovel)</div>
-        </div>
-        <div style="text-align:left;">
-          <div style="font-size:0.6rem;letter-spacing:0.28em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;" id="tf-label3">Paragem em Lavadores</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:3rem;color:white;line-height:1;" id="tf-val3">A metros<br>daqui</div>
-          <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);margin-top:8px;line-height:1.6;" id="tf-desc3">Uma das 6 paragens liga directamente à Praia de Lavadores — integrado no sistema Andante</div>
-        </div>
+        <!-- TELEFERICO STATS — same invest-card structure as ecoparque -->
+    <div class="invest-grid reveal" style="margin-top:20px;">
+      <div class="invest-card">
+        <div class="invest-card-num" id="tf-val1">Agosto<br>2026</div>
+        <div class="invest-card-title" id="tf-label1">Concurso Público</div>
+        <p class="invest-card-desc" id="tf-desc1">Lançamento oficial do concurso pela Câmara de Gaia — projecto confirmado pelo presidente Luís Filipe Menezes</p>
+      </div>
+      <div class="invest-card" style="border-color:rgba(201,168,76,0.5);">
+        <div class="invest-card-num" style="color:var(--gold-light);font-size:4rem;">+30%</div>
+        <div class="invest-card-title" id="tf-label2">Valorização Estimada</div>
+        <p class="invest-card-desc" id="tf-desc2">Potencial de valorização documentado em estudos de mercado para imóveis até 1 km de novas paragens de transporte público (DataZap/GeoImovel)</p>
+      </div>
+      <div class="invest-card">
+        <div class="invest-card-num" id="tf-val3">A metros<br>daqui</div>
+        <div class="invest-card-title" id="tf-label3">Paragem em Lavadores</div>
+        <p class="invest-card-desc" id="tf-desc3">Uma das 6 paragens liga directamente à Praia de Lavadores — integrado no sistema Andante</p>
       </div>
     </div>
 
